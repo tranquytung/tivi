@@ -861,6 +861,49 @@ footer .back-top a { position: absolute; top: -30px; left: 45px;}
     color: #222222;
 }
 
+/*css them*/
+
+.product .img-product .item-product{
+    min-height: 195px;
+}
+.product .img-product{
+    position: relative;
+}
+.product .discount{
+    position: absolute;
+    top: 75%;
+    left: 90%;
+    background: red;
+    border-radius: 100%;
+    padding: 10px 5px;
+    color: white;
+
+}
+.product .new{
+    position: absolute;
+    top: -4%;
+    left: -5%;
+    width: 20%;
+    height: 20%;
+}
+.clients ul li{
+    padding: 14px 24px!important;
+}
+.categories figure .cate-overlay a {
+    display: none;
+}
+.detail .name-product{
+    text-transform: uppercase;
+    color: blue;
+    font-size: 18px;
+}
+.detail .info-product{
+    color: gray;
+    font-size: 15px;
+}
+.detail strike{
+
+}
 
 
 

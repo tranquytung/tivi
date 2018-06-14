@@ -20,31 +20,32 @@
             <div class="row">
                 <div class="span12">
                     <div class="shopping-cart">
-
                         <ul class="title clearfix">
-                            <li>Hình ảnh</li>
                             <li class="second">Tên sản phẩm</li>
+                            <li>Hình ảnh</li>
                             <li>Số lượng</li>
                             <li>Giá sản phẩm</li>
                             <li>Thành tiền</li>
                             <li class="last">Thao tác</li>
                         </ul>
+                        @foreach($items as $item)
                         <ul class=" clearfix">
-                            <li>
-                                <figure><img src="http://placehold.it/131x86" alt=""></figure>
-                            </li>
                             <li class="second">
-                                <h4>Brown Wood Chair</h4>
+                                <h4>{{ $item->name }}</h4>
                                 <p><span>Color:</span> Brown</p>
                                 <p><span>Size:</span> 12</p>
                             </li>
                             <li>
-                                <input type="number" value="1">
+                                <figure><img src="{{ asset('upload/product/'.$item->options->img) }}" alt=""></figure>
                             </li>
-                            <li>$255.00</li>
-                            <li>$255.00</li>
-                            <li class="last"><a href="#">X</a></li>
+                            <li>
+                                <input type="number" value="{{ $item->qty }}">
+                            </li>
+                            <li>{{ formatprice($item->price) }} đ</li>
+                            <li>{{ formatprice($item->price*$item->qty) }} đ</li>
+                            <li class="last"><a href="{{ asset('cart/delete/'.$item->rowId) }}">X</a></li>
                         </ul>
+                        @endforeach
                         <a href="#" class="red-button">Tiếp tục mua hàng</a>
                         <a href="#" class="red-button black">Cập nhật</a>
 
@@ -84,12 +85,10 @@
 
                 <div class="span4 total clearfix">
                     <ul class="black">
-                        <li>Subtotal:</li>
-                        <li>Grand total:</li>
+                        <li>Tổng Tiền:</li>
                     </ul>
                     <ul class="gray">
-                        <li>$1475</li>
-                        <li>$1475.00</li>
+                        <li>{{ $total}}</li>
                     </ul>
                     <a href="#" class="red-button">Proceed to Checkout</a>
                 </div>

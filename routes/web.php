@@ -17,6 +17,11 @@ Route::group(['prefix'=>''],function (){
     Route::get('chitietsanpham',['as'=>'product.singe','uses'=>'FrontendController@getChitietSP']);
     Route::get('cart',['as'=>'cart','uses'=>'FrontendController@getCart']);
 });
+Route::group(['prefix'=>'cart'],function (){
+    Route::get('add/{id}/',['as'=>'cart.add','uses'=>'CartController@getAddCart']);
+    Route::get('show',['as'=>'cart.show','uses'=>'CartController@getShowCart']);
+    Route::get('delete/{id}',['as'=>'cart.delete','uses'=>'CartController@getDeleteCart']);
+});
 
 Route::get('admin',['as'=>'admin.login','uses'=>'AdminController@showLogin']);
 Route::post('admin',['as'=>'admin.postLogin','uses'=>'AdminController@postLogin']);

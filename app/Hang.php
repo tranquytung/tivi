@@ -11,4 +11,8 @@ class Hang extends Model
     protected $fillable=['id','tenhang','hinhang'];
 
     public $timestamps=false;
+
+    public function SP(){
+        return $this->hasMany('App\Product');
+    }
 }

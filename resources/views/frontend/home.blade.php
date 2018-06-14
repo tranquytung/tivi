@@ -81,7 +81,11 @@
                 <div class="span3 product">
                     <div>
                         <figure>
-                            <a href="#"><img src="{{ asset('upload/product/image/'.$item['anh'] )}}" alt=""></a>
+                            <div class="img-product">
+                                <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item['anh'] )}}" alt=""></a>
+                                <div class="discount">10%</div>
+                                <span class="new"><img src="{{ asset('frontend/images/new.png') }}" alt=""></span>
+                            </div>
                             <div class="overlay">
                                 <a href="{{ asset('upload/product/image/'.$item['anh'] )}}" class="zoom prettyPhoto"></a>
                                 <a href="#" class="link"></a>
@@ -90,10 +94,10 @@
                         <div class="detail">
                             <span>{{ $item['Gia'] }}</span>
                             <h1>{{ $item['TenSP'] }}</h1>
-                            <h4>Brown Wood Chair</h4>
+                            <h4><span>Brown Wood</span> <span>Brown Wood</span></h4>
                             <strike>240.00</strike>
                             <div class="icon">
-                                <a href="{{ URL::route('cart',$item['id_sp']) }}" class="one tooltip" title="Add to cart"></a>
+                                <a href="{{ URL::route('cart.add',$item['id_sp']) }}" class="one tooltip" title="Add to cart"></a>
                                 <a href="#" class="three tooltip" title="Add to compare"></a>
                             </div>
                         </div>

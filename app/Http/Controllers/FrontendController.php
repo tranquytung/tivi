@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\CategoryId;
+use App\Hang;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,10 @@ class FrontendController extends Controller
         return view('frontend.home',['new'=>$new]);
     }
     public function getProduct($id){
+        /*san pham thuoc nhieu danh muc*/
         $category = Category::find($id);
-
         $products = $category->products;
+
 
         return view('frontend.product', ['products' => $products]);
     }
