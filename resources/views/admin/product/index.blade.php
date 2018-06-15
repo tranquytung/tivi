@@ -32,13 +32,13 @@
                                 <td class="sorting_1">
                                     <ul>
                                         <li>Hãng&nbsp;:&nbsp;</li>
-                                        <li>Giá&nbsp;:&nbsp;{{ $item['Gia'] }}</li>
-                                        <li>Sale&nbsp;:&nbsp;{{ $item['sale'] }}</li>
+                                        <li>Giá&nbsp;:&nbsp;{{ formatprice_KM($item['Gia'],$item['sale']) }} đ</li>
+                                        <li>Sale&nbsp;:&nbsp;{{ $item['sale'] }} %</li>
                                         <li>Số lượng&nbsp;:&nbsp; {{ $item['soluong'] }}</li>
                                     </ul>
                                 </td>
-                                <td class="sorting_1 ">
-                                    <a href="" >{{ $item['active'] }}</a>
+                                <td class="sorting_1">
+                                    <a href="" >{{ $item['active']==1 ? 'Hiện' : 'Ẩn' }}</a>
                                 </td>
                                 <td class="">
                                     <a href="{{ URL::route('admin.product.getEdit',$item['id_sp']) }}" class="btn btn-xs btn-primary">

@@ -11,30 +11,32 @@ use Illuminate\Http\Request;
 class FrontendController extends Controller
 {
     public function getHome(){
-        $new =Product::get();
-        return view('frontend.home',['new'=>$new]);
+        $data['pay'] =Product::orderBy('pay','desc')->take(8)->get();
+        $data['new'] =Product::where('new',1)->orderBy('id_sp','desc')->take(8)->get();
+        return view('frontend.home',$data);
     }
     public function getProduct($id){
         /*san pham thuoc nhieu danh muc*/
         $category = Category::find($id);
-        $products = $category->products;
+        $data['products'] = $category->products;
 
-
-        return view('frontend.product', ['products' => $products]);
+        return view('frontend.product',$data);
     }
 
-//    public function getProduct($id){
-//        $id_danhmuc=Category::where('id',$id)->get();
-//        $id_hang=CategoryId::where('danhmuc_id',$id_danhmuc);
-//
-//        return view('frontend.product');
-//    }
 
-    public function getChitietSP(){
-        return view('frontend.singeproduct');
+    public function getDetail(){
+        return view('frontend.detail');
     }
 
     public function getCart(){
         return view('frontend.cart');
+    }
+
+    public function getSearch(Request $request){
+        $result=$request->txt_search;
+        $data['keyword']=$result;
+        $result=str_replace(' ', '%',$result);
+        $data['items']=Product::where('TenSP','like','%'.$result.'%')->paginate(9);
+        return view('frontend.search',$data);
     }
 }

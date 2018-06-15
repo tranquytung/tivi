@@ -901,8 +901,8 @@ footer .back-top a { position: absolute; top: -30px; left: 45px;}
     color: gray;
     font-size: 15px;
 }
-.detail strike{
-
+.an{
+    visibility: hidden;
 }
 
 

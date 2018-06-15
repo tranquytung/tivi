@@ -20,10 +20,9 @@ class AdminController extends Controller
 
         $check = Auth::guard('admin')->attempt(['email'=>$email,'password'=>$pass]);
 
-        dd($check);
         if($check){
 
-            return redirect()->route('admin.quanli.list');
+            return redirect()->route('admin.product.list');
         }else{
             return redirect()->route('admin.login');
         }

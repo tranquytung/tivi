@@ -26,6 +26,6 @@ class CartController extends Controller
 
     public function getDeleteCart($id){
         Cart::remove($id);
-        return back();
+        return redirect('cart/show');
     }
 }

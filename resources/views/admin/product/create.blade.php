@@ -59,8 +59,17 @@
                             <div class="col-md-8">
                                 <select name="sl_ktmh" id="" class="form-control">
                                     <?php foreach($ktmh as $item) :?>
-                                    <option value="{{ $item['íd'] }}"> {{ $item['kichthuoc'] }} Inch</option>
+                                    <option value="{{ $item['id'] }}"> {{ $item['kichthuoc'] }} Inch</option>
                                     <?php endforeach;?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-md-3 control-label">Sản phẩm mới</label>
+                            <div class="col-md-8">
+                                <select name="sl_new" id="" class="form-control">
+                                    <option value="0">Không</option>
+                                    <option value="1">Có</option>
                                 </select>
                             </div>
                         </div>

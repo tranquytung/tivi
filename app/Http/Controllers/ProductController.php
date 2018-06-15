@@ -35,7 +35,7 @@ class ProductController extends Controller
 
         $product= new Product();
         $product->TenSP=$request->txt_name;
-        $product->slug=$request->txt_slug;
+        $product->slug=to_slug($request->txt_name);
         $product->Gia=$request->txt_price;
         $product->sale=$request->txt_discount;
         $product->KTMH_id=$request->sl_ktmh;
@@ -45,6 +45,7 @@ class ProductController extends Controller
         $product->soluong=$request->txt_number;
         $product->noidung=$request->txt_content;
         $product->active=$request->sl_active;
+        $product->new=$request->sl_new;
 
         $product->anh=$file_image;
 

@@ -16,17 +16,7 @@
                 <div class="span12">
                     <div class="sorting-bar clearfix">
                         <div>
-                            <label>Sort by</label>
-                            <select>
-                                <option>Position</option>
-                            </select>
-                        </div>
-
-                        <div class="show">
-                            <label>SHOW</label>
-                            <select>
-                                <option>5 per page</option>
-                            </select>
+                            <label>Tìm kiếm sản phẩm <span style="color: red">{{ $keyword }}</span></label>
                         </div>
 
                         <div class="sorting-btn clearfix">
@@ -48,7 +38,7 @@
             <div class="row">
                 <div class="span9 product-grid">
                     <div class=" clearfix">
-                        @foreach($products as $item)
+                        @foreach($items as $item)
                             <div class="span3 product">
                                 <div>
                                     <figure>
@@ -78,14 +68,22 @@
                     </div>
 
                     <div class="pagination clearfix">
-                        <p>Items 1 to 9 of 12 total</p>
+                        <p>Tổng sản phẩm {{ $items->count() }}</p>
+                        @if($items->lastPage()>1)
                         <ul class="clearfix">
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">></a></li>
+                            @if($items->currentPage()!=1)
+                                <li><a href="{{ str_replace('/?','?',$items->url($items->currentPage() - 1)) }}"><</a></li>
+                            @endif
+                            @for($i=1;$i <= $items->lastPage();$i++)
+                                <li class="{{ $items->currentPage() == $i  ? 'active' : '' }}">
+                                    <a href="{{ str_replace('/?','?',$items->url($i)) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+                            @if($items->currentPage()==$items->lastPage())
+                                <li><a href="{{ str_replace('/?','?',$items->url($items->currentPage() + 1)) }}"> > </a></li>
+                            @endif
                         </ul>
+                        @endif
                     </div>
                 </div>
 

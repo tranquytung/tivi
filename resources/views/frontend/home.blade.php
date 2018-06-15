@@ -73,18 +73,18 @@
         <div class="container">
             <div class="row heading-wrap">
                 <div class="span12 heading">
-                    <h2>Sản Phẩm Ban Chay <span></span></h2>
+                    <h2>Sản Phẩm Bán Chạy <span></span></h2>
                 </div>
             </div>
             <div class="row">
-                @foreach($new as $item)
+                @foreach($pay as $item)
                 <div class="span3 product">
                     <div>
                         <figure>
                             <div class="img-product">
                                 <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item['anh'] )}}" alt=""></a>
-                                <div class="discount">10%</div>
-                                <span class="new"><img src="{{ asset('frontend/images/new.png') }}" alt=""></span>
+                                <div class="{{ $item['sale'] > 0 ? 'discount' : 'an' }}">{{ '-'.$item['sale'].'%'}}</div>
+                                <span class="new"><img src="{{ $item['new']==1 ? asset('frontend/images/new.png') : ' ' }}" alt=""></span>
                             </div>
                             <div class="overlay">
                                 <a href="{{ asset('upload/product/image/'.$item['anh'] )}}" class="zoom prettyPhoto"></a>
@@ -92,10 +92,10 @@
                             </div>
                         </figure>
                         <div class="detail">
-                            <span>{{ $item['Gia'] }}</span>
-                            <h1>{{ $item['TenSP'] }}</h1>
-                            <h4><span>Brown Wood</span> <span>Brown Wood</span></h4>
-                            <strike>240.00</strike>
+                            <span>Giá : {{ formatprice_KM($item['Gia'],$item['sale'])}} đ</span>
+                            <h1 class="name-product" >{{ $item['TenSP'] }}</h1>
+                            <h4 class="info-product" ><span>Brown Wood</span> <span>Brown Wood</span></h4>
+                            <strike class="{{  $item['sale'] > 0 ? '' : 'an'  }} "> Giá gốc : {{ formatprice($item['Gia']) }}</strike>
                             <div class="icon">
                                 <a href="{{ URL::route('cart.add',$item['id_sp']) }}" class="one tooltip" title="Add to cart"></a>
                                 <a href="#" class="three tooltip" title="Add to compare"></a>
@@ -116,183 +116,33 @@
                 </div>
             </div>
             <div class="row">
-
-                <div class="span3 product">
-
-                    <div>
-                        <figure>
-                            <a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-                            <div class="overlay">
-                                <a href="http://placehold.it/270x186" class="zoom prettyPhoto"></a>
-                                <a href="#" class="link"></a>
-                            </div>
-                        </figure>
-                        <div class="detail">
-                            <span>$244.00</span>
-                            <h4>Brown Wood Chair</h4>
-                            <div class="icon">
-                                <a href="#" class="one tooltip" title="Add to cart"></a>
-                                <a href="#" class="three tooltip" title="Add to compare"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="span3 product">
-
-                    <div>
-                        <figure>
-                            <a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-                            <div class="overlay">
-                                <a href="http://placehold.it/270x186" class="zoom"></a>
-                                <a href="#" class="link"></a>
-                            </div>
-                        </figure>
-                        <div class="detail">
-                            <span>$244.00</span>
-                            <h4>Brown Wood Chair</h4>
-                            <div class="icon">
-                                <a href="#" class="one tooltip" title="Add to wish list"></a>
-                                <a href="#" class="three tooltip" title="Add to compare"></a>
+                @foreach($new as $item)
+                    <div class="span3 product">
+                        <div>
+                            <figure>
+                                <div class="img-product">
+                                    <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item['anh'] )}}" alt=""></a>
+                                    <div class="{{ $item['sale'] > 0 ? 'discount' : 'an' }}">{{ '-'.$item['sale'].'%'}}</div>
+                                    <span class="new"><img src="{{ $item['new']==1 ? asset('frontend/images/new.png') : ' ' }}" alt=""></span>
+                                </div>
+                                <div class="overlay">
+                                    <a href="{{ asset('upload/product/image/'.$item['anh'] )}}" class="zoom prettyPhoto"></a>
+                                    <a href="#" class="link"></a>
+                                </div>
+                            </figure>
+                            <div class="detail">
+                                <span>Giá : {{ formatprice_KM($item['Gia'],$item['sale'])}} đ</span>
+                                <h1 class="name-product" >{{ $item['TenSP'] }}</h1>
+                                <h4 class="info-product" ><span>Brown Wood</span> <span>Brown Wood</span></h4>
+                                <strike class="{{  $item['sale'] > 0 ? '' : 'an'  }} "> Giá gốc : {{ formatprice($item['Gia']) }}</strike>
+                                <div class="icon">
+                                    <a href="{{ URL::route('cart.add',$item['id_sp']) }}" class="one tooltip" title="Add to cart"></a>
+                                    <a href="#" class="three tooltip" title="Add to compare"></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                </div>
-
-                <div class="span3 product">
-
-                    <div>
-                        <figure>
-                            <a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-                            <div class="overlay">
-                                <a href="http://placehold.it/270x186" class="zoom"></a>
-                                <a href="#" class="link"></a>
-                            </div>
-                        </figure>
-                        <div class="detail">
-                            <span>$244.00</span>
-                            <h4>Brown Wood Chair</h4>
-                            <div class="icon">
-                                <a href="#" class="one tooltip" title="Add to wish list"></a>
-                                <a href="#" class="three tooltip" title="Add to compare"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="span3 product">
-
-                    <div>
-                        <figure>
-                            <a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-                            <div class="overlay">
-                                <a href="http://placehold.it/270x186" class="zoom"></a>
-                                <a href="#" class="link"></a>
-                            </div>
-                        </figure>
-                        <div class="detail">
-                            <span>$244.00</span>
-                            <h4>Brown Wood Chair</h4>
-                            <div class="icon">
-                                <a href="#" class="one tooltip" title="Add to wish list"></a>
-                                <a href="#" class="three tooltip" title="Add to compare"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="span3 product">
-
-                    <div>
-                        <figure>
-                            <a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-                            <div class="overlay">
-                                <a href="http://placehold.it/270x186" class="zoom"></a>
-                                <a href="#" class="link"></a>
-                            </div>
-                        </figure>
-                        <div class="detail">
-                            <span>$244.00</span>
-                            <h4>Brown Wood Chair</h4>
-                            <div class="icon">
-                                <a href="#" class="one tooltip" title="Add to wish list"></a>
-                                <a href="#" class="three tooltip" title="Add to compare"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="span3 product">
-
-                    <div>
-                        <figure>
-                            <a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-                            <div class="overlay">
-                                <a href="http://placehold.it/270x186" class="zoom"></a>
-                                <a href="#" class="link"></a>
-                            </div>
-                        </figure>
-                        <div class="detail">
-                            <span>$244.00</span>
-                            <h4>Brown Wood Chair</h4>
-                            <div class="icon">
-                                <a href="#" class="one tooltip" title="Add to wish list"></a>
-                                <a href="#" class="three tooltip" title="Add to compare"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="span3 product">
-
-                    <div>
-                        <figure>
-                            <a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-                            <div class="overlay">
-                                <a href="http://placehold.it/270x186" class="zoom"></a>
-                                <a href="#" class="link"></a>
-                            </div>
-                        </figure>
-                        <div class="detail">
-                            <span>$244.00</span>
-                            <h4>Brown Wood Chair</h4>
-                            <div class="icon">
-                                <a href="#" class="one tooltip" title="Add to wish list"></a>
-                                <a href="#" class="three tooltip" title="Add to compare"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="span3 product">
-
-                    <div>
-                        <figure>
-                            <a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-                            <div class="overlay">
-                                <a href="http://placehold.it/270x186" class="zoom"></a>
-                                <a href="#" class="link"></a>
-                            </div>
-                        </figure>
-                        <div class="detail">
-                            <span>$244.00</span>
-                            <h4>Brown Wood Chair</h4>
-                            <div class="icon">
-                                <a href="#" class="one tooltip" title="Add to wish list"></a>
-                                <a href="#" class="three tooltip" title="Add to compare"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+                @endforeach
             </div>
         </div>
     </div>

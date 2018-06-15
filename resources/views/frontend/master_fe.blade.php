@@ -65,8 +65,8 @@
                             </div>
 
                             <div class="span5">
-                                <form>
-                                    <input type="text" placeholder="Nhập từ khóa bạn muốn tìm kiếm">
+                                <form action="{{ asset('search') }}" method="get">
+                                    <input type="text" placeholder="Nhập từ khóa bạn muốn tìm kiếm" name="txt_search">
                                     <input type="submit" value="">
                                 </form>
                             </div>
@@ -90,6 +90,7 @@
                             <div class="span12">
                                 <nav class="desktop-nav">
                                     <ul class="clearfix">
+                                        <li><a href="{{ URL::route('home') }}">Trang Trủ</a></li>
                                         @foreach($categoris as $item)
                                             <li>
                                                 <a href="{{ URL::route('product',$item['id']) }}">{{ $item['name'] }}</a>
