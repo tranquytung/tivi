@@ -43,7 +43,14 @@
                             </li>
                             <li>{{ formatprice($item->price) }} đ</li>
                             <li>{{ formatprice($item->price*$item->qty) }} đ</li>
-                            <li class="last"><a href="{{ asset('cart/delete/'.$item->rowId) }}">X</a></li>
+                            {{--<li class="last"><a href="{{ asset('cart/delete/'.$item->rowId) }}">X</a></li>--}}
+                            <li class="last-custom">
+                                <form action="{{ route('cart.delete', ['id' => $item->rowId ]) }}" method="post">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                                    <input type="submit" value="x">
+                                </form>
+                            </li>
                         </ul>
                         @endforeach
                         <a href="#" class="red-button">Tiếp tục mua hàng</a>

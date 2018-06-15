@@ -9,15 +9,30 @@ use App\Product;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class FrontendController extends Controller
 {
-    public function getHome(){
+    /*public function getHome(){
         $data['pay'] =Product::orderBy('pay','desc')->take(8)->get();
         $data['new'] =Product::where('new',1)->orderBy('id_sp','desc')->take(8)->get();
         return view('frontend.home',$data);
+    }*/
+
+    public function getHome(){
+        $pay= DB::table('tbl_sanpham')
+                    ->join('tbl_hang','tbl_sanpham.Hang_id','=','tbl_hang.id')
+                    ->orderBy('pay','desc')->take(8)
+                    ->get();
+
+
+        $new =Product::where('new',1)->orderBy('id_sp','desc')->take(8)->get();
+
+
+        return view('frontend.home',['pay' => $pay, 'new'=> $new]);
     }
+
     public function getProduct($id){
         /*san pham thuoc nhieu danh muc*/
         $category = Category::find($id);

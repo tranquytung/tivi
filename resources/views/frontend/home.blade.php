@@ -82,22 +82,22 @@
                     <div>
                         <figure>
                             <div class="img-product">
-                                <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item['anh'] )}}" alt=""></a>
-                                <div class="{{ $item['sale'] > 0 ? 'discount' : 'an' }}">{{ '-'.$item['sale'].'%'}}</div>
-                                <span class="new"><img src="{{ $item['new']==1 ? asset('frontend/images/new.png') : ' ' }}" alt=""></span>
+                                <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item ->anh )}}" alt=""></a>
+                                <div class="{{ $item -> sale > 0 ? 'discount' : 'an' }}">{{ $item->sale}}</div>
+                                <span class="new"><img src="{{ $item->new==1 ? asset('frontend/images/new.png') : ' ' }}" alt=""></span>
                             </div>
                             <div class="overlay">
-                                <a href="{{ asset('upload/product/image/'.$item['anh'] )}}" class="zoom prettyPhoto"></a>
-                                <a href="{{ URL::route('product.detail',$item['id_sp']) }}" class="link"></a>
+                                <a href="{{ asset('upload/product/image/'.$item->anh )}}" class="zoom prettyPhoto"></a>
+                                <a href="{{ URL::route('product.detail',$item->id_sp ) }}" class="link"></a>
                             </div>
                         </figure>
                         <div class="detail">
-                            <span>Giá : {{ formatprice_KM($item['Gia'],$item['sale'])}} đ</span>
-                            <h1 class="name-product" >{{ $item['TenSP'] }}</h1>
-                            <h4 class="info-product" ><span>Brown Wood</span> <span>Brown Wood</span></h4>
-                            <strike class="{{  $item['sale'] > 0 ? '' : 'an'  }} "> Giá gốc : {{ formatprice($item['Gia']) }}</strike>
+                            <span>Giá : {{ formatprice_KM($item->Gia,$item->sale)}} đ</span>
+                            <h1 class="name-product" >{{ $item->TenSP }}</h1>
+                            <h4 class="info-product" ><span>{{ $item->tenhang }}</span> <span>Brown Wood</span></h4>
+                            <strike class="{{  $item->sale > 0 ? '' : 'an'  }} "> Giá gốc : {{ formatprice($item->Gia) }}</strike>
                             <div class="icon">
-                                <a href="{{ URL::route('cart.add',$item['id_sp']) }}" class="one tooltip" title="Add to cart"></a>
+                                <a href="{{ URL::route('cart.add',$item->id_sp) }}" class="one tooltip" title="Add to cart"></a>
                                 <a href="#" class="three tooltip" title="Add to compare"></a>
                             </div>
                         </div>
