@@ -60,12 +60,16 @@ class AdminController extends Controller
 
     public function postEdit(Request $request, $id){
         $this->validate($request,
-            ['txt_name'=>'required'],
-            ['txt_name.required'=>'Bạn không được để trống tên admin'],
-            ['txt_email' => 'required' ],
-            ['txt_email.required'=>'Bạn không được để trống mật khẩu'],
-            ['txt_pass' => 'required' ],
-            ['txt_pass.required'=>'Bạn không được để trống mật khẩu']);
+            [
+                'txt_name'=>'required',
+                'txt_email' => 'required',
+                'txt_pass' => 'required'
+            ],
+            [
+                'txt_name.required'=>'Bạn không được để trống tên admin',
+                'txt_email.required'=>'Bạn không được để trống mật khẩu',
+                'txt_pass.required'=>'Bạn không được để trống mật khẩu'
+            ]);
 
         $admin= Admin::find($id);
         $admin->name=$request->txt_name;

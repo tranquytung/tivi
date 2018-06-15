@@ -15,7 +15,11 @@ Route::get('/',['as'=>'home' ,'uses'=>'FrontendController@getHome']);
 Route::group(['prefix'=>''],function (){
     Route::get('product/{id}/',['as'=>'product','uses'=>'FrontendController@getProduct']);
     Route::get('detail',['as'=>'product.detail','uses'=>'FrontendController@getDetail']);
-    Route::get('search',['as'=>'product.search','uses'=>'FrontendController@getSearch']);
+    Route::get('search',['as'=>'search','uses'=>'FrontendController@getSearch']);
+    Route::get('login',['as'=>'login','uses'=>'FrontendController@getLogin']);
+    Route::post('login',['as'=>'login','uses'=>'FrontendController@postLogin']);
+    Route::get('dangky',['as'=>'dangky','uses'=>'FrontendController@getDangKy']);
+    Route::post('dangky',['as'=>'user.dangky','uses'=>'FrontendController@postDangKy']);
     Route::get('cart',['as'=>'cart','uses'=>'FrontendController@getCart']);
 });
 Route::group(['prefix'=>'cart'],function (){
