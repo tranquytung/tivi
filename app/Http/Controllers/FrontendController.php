@@ -27,8 +27,9 @@ class FrontendController extends Controller
     }
 
 
-    public function getDetail(){
-        return view('frontend.detail');
+    public function getDetail($id){
+        $data['detail']=Product::find($id)->get();
+        return view('frontend.detail',$data);
     }
 
     public function getCart(){

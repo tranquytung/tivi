@@ -88,7 +88,7 @@
                             </div>
                             <div class="overlay">
                                 <a href="{{ asset('upload/product/image/'.$item['anh'] )}}" class="zoom prettyPhoto"></a>
-                                <a href="#" class="link"></a>
+                                <a href="{{ URL::route('product.detail',$item['id_sp']) }}" class="link"></a>
                             </div>
                         </figure>
                         <div class="detail">
