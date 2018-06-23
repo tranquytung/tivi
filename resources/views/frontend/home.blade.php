@@ -92,7 +92,7 @@
                             </div>
                         </figure>
                         <div class="detail">
-                            <span>Giá : {{ formatprice_KM($item->Gia,$item->sale)}} đ</span>
+                            <span class="price-item">Giá : {{ formatprice_KM($item->Gia,$item->sale)}} đ</span>
                             <h1 class="name-product" >{{ $item->TenSP }}</h1>
                             <h4 class="info-product" >
                                 <span>{{ $item->tenhang }}</span>
@@ -138,7 +138,7 @@
                                 </div>
                             </figure>
                             <div class="detail">
-                                <span>Giá : {{ formatprice_KM($item->Gia,$item->sale)}} đ</span>
+                                <span class="price-item" >Giá : {{ formatprice_KM($item->Gia,$item->sale)}} đ</span>
                                 <h1 class="name-product" >{{ $item->TenSP }}</h1>
                                 <h4 class="info-product" >
                                     <span>{{ $item->tenhang }}</span>

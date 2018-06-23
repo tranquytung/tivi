@@ -63,9 +63,15 @@
                                         </div>
                                     </figure>
                                     <div class="detail">
-                                        <span>Giá : {{ formatprice_KM($item->Gia,$item->sale)}} đ</span>
+                                        <span class="price-item" >Giá : {{ formatprice_KM($item->Gia,$item->sale)}} đ</span>
                                         <h1 class="name-product" >{{ $item->TenSP }}</h1>
-                                        <h4 class="info-product" ><span>Brown Wood</span> <span>Brown Wood</span></h4>
+                                        <h4 class="info-product" >
+                                            <span>{{ $item->tenhang }}</span>
+                                            <span>{{ $item->TenSP }}</span>
+                                            <span>, {{ $item->loaitivi }}</span>
+                                            <span>,{{ $item->dophangiai }}</span>
+                                            <span>, {{ $item->kichthuoc }} INCH</span>
+                                        </h4>
                                         <strike class="{{  $item->sale > 0 ? '' : 'an'  }} "> Giá gốc : {{ formatprice($item->Gia) }}</strike>
                                         <div class="icon">
                                             <a href="{{ URL::route('cart.add',$item->id_sp) }}" class="one tooltip" title="Add to cart"></a>
