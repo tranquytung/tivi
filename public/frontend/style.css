@@ -249,10 +249,10 @@ header nav > ul > li ul li a{display: block;}
 .button {-webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; -ms-transition: 0.5s; transition:  0.5s; background: #ffffff; border-radius: 10px;font:700 16px 'Open Sans' sans-serif; padding: 10px 21px; text-transform: uppercase; color: #f71919; }
 .button:hover { background: #f0f0f0; }
 
-.red-button {-webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; -ms-transition: 0.5s; transition:  0.5s; font: 14px 'Arial' sans-serif; color: #ffffff; padding: 20px 15px 20px 38px; margin: 18px; display: inline-block; background: #f71919 url("images/shopping-cart.png") 15px center no-repeat;  }
-.red-button:hover  {background: #cc2828 url("images/shopping-cart.png") 15px center no-repeat;}
-.red-button.black { background: #4d4d4d url("images/update.png") 15px center no-repeat;}
-.red-button.black:hover  { background: #262626 url("images/update.png") 15px center no-repeat;}
+.red-button {-webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; -ms-transition: 0.5s; transition:  0.5s; font: 14px 'Arial' sans-serif; color: #ffffff; padding: 12px 15px; margin: 18px; display: inline-block;background: red  }
+.red-button:hover  {background: black;}
+.red-button.black { background: #474747}
+.red-button.black:hover  { background:red;}
 
 .big-button { font: 11px 'arial' sans-serif;padding: 14px 14px 15px 30px;margin-right: 6px;border: 1px solid #dfdfdf; background: #f2f2f2; display: inline-block; }
 .big-button:hover {background:#fcfcfc}
@@ -369,21 +369,21 @@ header nav > ul > li ul li a{display: block;}
 #check-accordion h5.ui-accordion-header-active {margin-bottom: 0px; background: #6a6a6a url("images/top-errow.png") 98% center no-repeat;}
 #check-accordion h5.ui-accordion-header-active a { color: #fff; }
 #check-accordion h5.ui-accordion-header-active small { background: url("images/accordion-hover.png") no-repeat; }
-.cheakout { width: 539px; }
-#check-accordion > div { background: #f0f0f0;margin-bottom: 15px;padding: 25px 0px; height: auto !important; border: 1px solid  #dfdfdf; border-top: 0px; }
+.cheakout { width: 465px; }
+#check-accordion > div { background: #f0f0f0;margin-bottom: 15px;padding: 25px 0px; border: 1px solid  #dfdfdf; border-top: 0px; }
 #check-accordion div > div { background: #ffffff; border: 1px solid  #dfdfdf; border-top: 0px; }
-#check-accordion h6 { height: 56px; line-height: 56px; border-bottom: 1px solid #dfdfdf; padding-left: 17px; }
+#check-accordion h6 { line-height: 56px; border-bottom: 1px solid #dfdfdf; margin-bottom: 30px;}
 #check-accordion h6 span { color: #9d9d9d; font: 12px 'Arial' sans-serif; }
 
-#check-accordion form { padding: 25px; }
+#check-accordion form { padding: 0px 0px 25px 0px; }
 #check-accordion form input[type='radio'] { margin: -2px 15px 15px 0px; }
 #check-accordion form label { font: 14px 'Arial' sana-serif; color: #000000; vertical-align: middle;display: inline-block; margin-top: -17px; width: 150px; }
 #check-accordion form p { font: 14px 'Arial' sans-serif; color: #8a8a8a; line-height: 22px; margin-bottom: 17px;  }
-#check-accordion form input[type='submit'] {  -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; -ms-transition: 0.5s; transition:  0.5s; background: #f71919; padding: 10px 15px; border: 0px; color: #ffffff; font:700 14px 'Arial' sans-serif; }
+#check-accordion form input[type='submit'] {  -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; -ms-transition: 0.5s; transition:  0.5s; background: #434343; padding: 10px 15px; border: 0px; color: #ffffff; font:700 14px 'Arial' sans-serif;margin-bottom: 10px}
 #check-accordion form input[type='submit']:hover{background: #cc2828;}
 
 #check-accordion .register form a { text-align: right ; font:13px 'arial' sans-serif; display: block; text-decoration: underline; margin-bottom: 15px;}
-#check-accordion .register  input[type='submit'] { background: #4d4d4d; float: right;}
+#check-accordion .register  input[type='submit'] { background: #4d4d4d; }
 #check-accordion .register  input[type='submit']:hover {background: #262626;}
 #check-accordion .register label { margin-top: -23px; }
 #check-accordion  input[type='text'] {width:213px; border-radius: 0px; box-shadow: none; outline: 0px; margin-bottom: 22px; }
@@ -402,7 +402,7 @@ header nav > ul > li ul li a{display: block;}
 
 .billing-form input[type='checkbox'] { margin: -1px 10px 0px 0px; vertical-align: middle;}
 .billing-form p { display:inline-block; font-size: 12px !important; color: #000000 !important; margin: 0px !important;;}
-.billing-form .red-button {background: #f71919; padding: 15px 15px !important; float: right;font-weight: bold; margin-bottom: 0px !important;;margin-right: 0px !important;}
+.billing-form .red-button {background: #474747; float: right;font-weight: bold;}
 .billing-form .red-button:hover  {background: #cc2828}
 
 .billing-form .selectBox-dropdown .selectBox-label {padding: 10px 26px 10px 11px !important;}
@@ -468,13 +468,13 @@ header nav > ul > li ul li a{display: block;}
 .shopping-cart .red-button.black { float: right }
 
 
-.cart-calculator h6 { font-size: 18px; text-transform: uppercase;background: #212224; color: #ffffff; padding: 20px; }
+.cart-calculator h6 { font-size: 18px; text-transform: uppercase;background: #212224; color: #ffffff; padding: 20px;margin-bottom: 10px }
 .cart-calculator .estimate { background: #e4e4e4; padding:20px;  margin-bottom: 20px; text-align: center;}
 .cart-calculator .selectBox-dropdown { background: #ffffff;text-decoration: none !important;font-size: 13px !important; color: #808080 !important;margin: 0px 0px 20px 0px!important; float: none !important;width: 308px !important; height: 38px !important;border: solid 1px #d4d4d4;line-height: 38px;}
 .cart-calculator .selectBox-dropdown .selectBox-label { padding: 11px 26px 7px 11px !important;color: #808080 !important;}
 .cart-calculator .selectBox-dropdown .selectBox-arrow {right: -2px !important; background: url("images/big-errow.png") no-repeat !important; width: 40px !important; height: 40px !important; }
 
-.cart-calculator input[type='text'] { font: 13px 'Arial' sans-serif; box-shadow: none; outline: 0px; width: 289px; padding: 0px 10px 0px 10px; height: 38px; border: 1px solid #d8d9dc; border-radius: 0px; }
+.cart-calculator input[type='text'] { font: 13px 'Arial' sans-serif; box-shadow: none; outline: 0px; width: 289px; padding: 0px 10px 0px 10px; height: 38px; border: 1px solid #d8d9dc; border-radius: 5px; }
 .cart-calculator .red-button { font-family: georgia; float: right; margin: 0px 10px 0px 0px; border: 0px; background: #f71919; padding:18px 20px; }
 .cart-calculator .red-button:hover { background:#cc2828;  }
 
@@ -900,10 +900,19 @@ footer .back-top a { position: absolute; top: -30px; left: 45px;}
 .detail .info-product{
     color: gray;
     font-size: 15px;
+
 }
 .an{
     visibility: hidden;
 }
+.table-login{
+    text-align: center;
+    background: white;
+    border: 1px solid #dfdfdf;
+    margin: 0 auto;
 
-
+}
+.fix-input{
+    padding: 9px 6px;!important;
+}
 

@@ -43,11 +43,11 @@
                             <div class="span10 right">
                                 <div class="social-strip">
                                     <ul>
-                                        @if(Session::has('login')&& Session::get('login') == true)
+                                        {{--@if(Session::has('login')&& Session::get('login') == true)--}}
                                             <li><a href="#" class="account"> xin chào {{ Session::get('name') }}</a></li>
                                             <li><a href="#" class="account">My Account</a></li>
                                             <li><a href="{{ asset('login') }}" class="check">Checkout</a></li>
-                                        @endif
+                                        {{--@endif--}}
                                     </ul>
                                 </div>
 

@@ -6,6 +6,7 @@ use App\Category;
 use App\CategoryId;
 use App\Hang;
 use App\Product;
+use App\ProductImage;
 use App\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,11 +44,17 @@ class FrontendController extends Controller
     }
 
     public function getProduct($id){
-        /*san pham thuoc nhieu danh muc*/
-        $category = Category::find($id);
-        $data['products'] = $category->products;
+        $data = DB::table('tbl_sanpham')
+                ->join('tbl_danhmuc_sp', 'tbl_sanpham.id_sp', '=', 'tbl_danhmuc_sp.sp_id')
+                ->join('tbl_danhmuc', 'tbl_danhmuc_sp.danhmuc_id', '=', 'tbl_danhmuc.id')
+                ->join('tbl_hang','tbl_sanpham.Hang_id','=','tbl_hang.id')
+                ->join('tbl_ktmh','tbl_sanpham.KTMH_id','=','tbl_ktmh.id')
+                ->join('tbl_loaitivi','tbl_sanpham.LoaiTivi_id','=','tbl_loaitivi.id')
+                ->join('tbl_dophangiai','tbl_sanpham.Dophangiai_id','=','tbl_dophangiai.id')
+                ->where('tbl_danhmuc.id',$id)
+                ->get();
 
-        return view('frontend.product',$data);
+        return view('frontend.product',['data'=>$data]);
     }
 
 
@@ -57,10 +64,12 @@ class FrontendController extends Controller
             ->join('tbl_ktmh','tbl_sanpham.KTMH_id','=','tbl_ktmh.id')
             ->join('tbl_loaitivi','tbl_sanpham.LoaiTivi_id','=','tbl_loaitivi.id')
             ->join('tbl_dophangiai','tbl_sanpham.Dophangiai_id','=','tbl_dophangiai.id')
-            ->where('id_sp',$id)
+            ->where('id_sp', $id)
             ->get();
 
-        return view('frontend.detail',['detail'=>$data]);
+        $images = ProductImage::where('id_sp', '=', $id)->get();
+
+        return view('frontend.detail',['detail'=>$data,'images'=>$images]);
     }
 
     public function getCart(){

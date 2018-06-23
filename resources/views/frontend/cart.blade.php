@@ -43,8 +43,6 @@
                         <ul class=" clearfix">
                             <li class="second">
                                 <h4>{{ $item->name }}</h4>
-                                <p><span>Color:</span> Brown</p>
-                                <p><span>Size:</span> 12</p>
                             </li>
                             <li>
                                 <figure><img src="{{ asset('upload/product/'.$item->options->img) }}" alt=""></figure>
@@ -82,19 +80,35 @@
                 </div>
                 <div class="span8 clearfix">
                     <h6>Thông tin khách hàng</h6>
-                    <from>
-                        <lable>Tên</lable>
-                        <input type="text" placeholder="Tên Khánh hàng"/>
-                        <lable>Email</lable>
-                        <input type="email" placeholder="email khach hang"/>
-                        <lable>Địa chỉ</lable>
-                        <input type="text" placeholder="Tên Khánh hàng"/>
-                        <lable>Số Điện thoại</lable>
-                        <input type="number" placeholder="Tên Khánh hàng"/>
-                        <lable>Nôi dung</lable>
-                        <input type="text" placeholder="Tên Khánh hàng"/>
-                        <input type="submit"  class="red-button" value="Xác nhận thanh toán" >
-                    </from>
+                    <form method="post" action="{{ route('show.complete') }}" >
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <table width="100%">
+                            <tr>
+                                <td><lable>Tên</lable></td>
+                                <td ><input  type="text" placeholder="Tên Khánh hàng" name="txt_name"/></td>
+                                <td><lable>Email</lable></td>
+                                <td ><input class="fix-input" type="text" placeholder="email khach hang" name="txt_email"/></td>
+                            </tr>
+                            <tr>
+                                <td><lable>Địa chỉ</lable></td>
+                                <td><input type="text" placeholder="Tên Khánh hàng" name="txt_diachi" /></td>
+                                <td><lable>Số Điện thoại</lable></td>
+                                <td>
+                                    <input class="fix-input" type="text" placeholder="Số điện thoại"
+                                           name="txt_sdt">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><lable>Nôi dung</lable></td>
+                                <td><input type="text" placeholder="Tên Khánh hàng" name="txt_noidung" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;">
+                                    <input type="submit" class="red-button" value="Xác nhận thanh toán" >
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
                     </div>
                 </div>
             </div>

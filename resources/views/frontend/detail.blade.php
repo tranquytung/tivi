@@ -51,13 +51,16 @@
                             <div id="carousel-wrapper">
                                 <div id="carousel" class="cool-carousel">
                                     <span id="image1"><img src="{{ asset('upload/product/image/'.$item->anh )}}" alt=""/></span>
-                                    <span id="image2"><img src="http://placehold.it/470x311" alt="" /></span>
-                                    <span id="image3"><img src="http://placehold.it/470x311" alt="" /></span>
+
+                                    @foreach($images as $item)
+                                    <span id="image2"><img src="{{ asset('upload/product/image/'.$item->anh )}}" alt="" /></span>
+                                    @endforeach
+                                    {{--<span id="image3"><img src="http://placehold.it/470x311" alt="" /></span>
                                     <span id="image4"><img src="http://placehold.it/470x311" alt=""/></span>
                                     <span id="image5"><img src="http://placehold.it/470x311" alt=""/></span>
                                     <span id="image6"><img src="http://placehold.it/470x311" alt="" /></span>
                                     <span id="image7"><img src="http://placehold.it/470x311" alt="" /></span>
-                                    <span id="image8"><img src="http://placehold.it/470x311" alt=""/></span>
+                                    <span id="image8"><img src="http://placehold.it/470x311" alt=""/></span>--}}
                                 </div>
                                 <a href="#" class="prev"></a><a href="#" class="next"></a>
                             </div>
@@ -65,14 +68,16 @@
                             <div class="bottom">
                                 <div id="thumbs-wrapper">
                                     <div id="thumbs">
-                                        <a href="#image1" class="selected"><img src="http://placehold.it/97x60"  alt="" /></a>
-                                        <a href="#image2"><img src="http://placehold.it/97x60" alt="" /></a>
-                                        <a href="#image3"><img src="http://placehold.it/97x60" alt=""/></a>
+                                        <a href="#image1" class="selected"><img src="{{ asset('upload/product/image/'.$item->anh )}}"  alt="" /></a>
+                                        @foreach($images as $item)
+                                        <a href="#image2"><img src="{{ asset('upload/product/image/'.$item->anh )}}" alt="" /></a>
+                                        @endforeach
+                                        {{--<a href="#image3"><img src="http://placehold.it/97x60" alt=""/></a>
                                         <a href="#image4"><img src="http://placehold.it/97x60" alt=""/></a>
                                         <a href="#image5"><img src="http://placehold.it/97x60"  alt=""/></a>
                                         <a href="#image6"><img src="http://placehold.it/97x60"  alt=""/></a>
                                         <a href="#image7"><img src="http://placehold.it/97x60" alt=""/></a>
-                                        <a href="#image8"><img src="http://placehold.it/97x60" alt=""/></a>
+                                        <a href="#image8"><img src="http://placehold.it/97x60" alt=""/></a>--}}
                                     </div>
                                     <a id="prev" href="#"></a>
                                     <a id="next" href="#"></a>

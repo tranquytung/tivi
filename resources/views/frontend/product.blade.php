@@ -48,27 +48,27 @@
             <div class="row">
                 <div class="span9 product-grid">
                     <div class=" clearfix">
-                        @foreach($products as $item)
+                        @foreach($data as $item)
                             <div class="span3 product">
                                 <div>
                                     <figure>
                                         <div class="img-product">
-                                            <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item['anh'] )}}" alt=""></a>
-                                            <div class="{{ $item['sale'] > 0 ? 'discount' : 'an' }}">{{ '-'.$item['sale'].'%'}}</div>
-                                            <span class="new"><img src="{{ $item['new']==1 ? asset('frontend/images/new.png') : ' ' }}" alt=""></span>
+                                            <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item->anh )}}" alt=""></a>
+                                            <div class="{{ $item->anh > 0 ? 'discount' : 'an' }}">{{ '-'.$item->anh.'%'}}</div>
+                                            <span class="new"><img src="{{ $item->new==1 ? asset('frontend/images/new.png') : ' ' }}" alt=""></span>
                                         </div>
                                         <div class="overlay">
-                                            <a href="{{ asset('upload/product/image/'.$item['anh'] )}}" class="zoom prettyPhoto"></a>
+                                            <a href="{{ asset('upload/product/image/'.$item->anh )}}" class="zoom prettyPhoto"></a>
                                             <a href="#" class="link"></a>
                                         </div>
                                     </figure>
                                     <div class="detail">
-                                        <span>Giá : {{ formatprice_KM($item['Gia'],$item['sale'])}} đ</span>
-                                        <h1 class="name-product" >{{ $item['TenSP'] }}</h1>
+                                        <span>Giá : {{ formatprice_KM($item->Gia,$item->sale)}} đ</span>
+                                        <h1 class="name-product" >{{ $item->TenSP }}</h1>
                                         <h4 class="info-product" ><span>Brown Wood</span> <span>Brown Wood</span></h4>
-                                        <strike class="{{  $item['sale'] > 0 ? '' : 'an'  }} "> Giá gốc : {{ formatprice($item['Gia']) }}</strike>
+                                        <strike class="{{  $item->sale > 0 ? '' : 'an'  }} "> Giá gốc : {{ formatprice($item->Gia) }}</strike>
                                         <div class="icon">
-                                            <a href="{{ URL::route('cart.add',$item['id_sp']) }}" class="one tooltip" title="Add to cart"></a>
+                                            <a href="{{ URL::route('cart.add',$item->id_sp) }}" class="one tooltip" title="Add to cart"></a>
                                             <a href="#" class="three tooltip" title="Add to compare"></a>
                                         </div>
                                     </div>

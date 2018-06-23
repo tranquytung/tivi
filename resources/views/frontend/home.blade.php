@@ -83,7 +83,7 @@
                         <figure>
                             <div class="img-product">
                                 <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item ->anh )}}" alt=""></a>
-                                <div class="{{ $item -> sale > 0 ? 'discount' : 'an' }}">{{ $item->sale}}</div>
+                                <div class="{{ $item -> sale > 0 ? 'discount' : 'an' }}">{{ '-'.$item->sale.'%'}}</div>
                                 <span class="new"><img src="{{ $item->new==1 ? asset('frontend/images/new.png') : ' ' }}" alt=""></span>
                             </div>
                             <div class="overlay">
