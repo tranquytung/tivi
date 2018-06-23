@@ -50,7 +50,7 @@
                         <div class="wrap span5">
                             <div id="carousel-wrapper">
                                 <div id="carousel" class="cool-carousel">
-                                    <span id="image1"><img src="{{ asset('upload/product/image/'.$item['anh'] )}}" alt=""/></span>
+                                    <span id="image1"><img src="{{ asset('upload/product/image/'.$item->anh )}}" alt=""/></span>
                                     <span id="image2"><img src="http://placehold.it/470x311" alt="" /></span>
                                     <span id="image3"><img src="http://placehold.it/470x311" alt="" /></span>
                                     <span id="image4"><img src="http://placehold.it/470x311" alt=""/></span>
@@ -82,8 +82,8 @@
 
                         <div class="span4">
                             <div class="product-detail">
-                                <h4>{{ $item['TenSP'] }}</h4>
-                                <span>{{ formatprice_KM($item['Gia'],$item['sale']) }} đ</span>
+                                <h4>{{ $item->TenSP }}</h4>
+                                <span>{{ formatprice_KM($item->Gia,$item->sale) }} đ</span>
                                 <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. </p>
                                 <p>Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent </p>
                             </div>
@@ -91,14 +91,14 @@
                                 <div>
                                     <label>Mã SP</label>
                                     <select>
-                                        <option>{{ $item['id_sp'] }}</option>
+                                        <option>{{ $item->id_sp }}</option>
                                     </select>
                                 </div>
 
                                 <div>
                                     <label>Số lượng</label>
                                     <select>
-                                        <option>{{ $item['soluong'] }}</option>
+                                        <option>{{ $item->soluong }}</option>
                                     </select>
                                 </div>
 

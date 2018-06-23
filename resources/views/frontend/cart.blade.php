@@ -1,4 +1,15 @@
 @extends("frontend.master_fe")
+<script type="text/javascript">
+    function updateCart(qty,rowId) {
+        $.get(
+            '{{ asset('cart/update') }}',
+            { qty:qty,rowId:rowId},
+            function () {
+                location.reload();
+            }
+        )
+    }
+</script>
 @section('content')
     <div class="bar-wrap">
         <div class="container">
@@ -39,7 +50,8 @@
                                 <figure><img src="{{ asset('upload/product/'.$item->options->img) }}" alt=""></figure>
                             </li>
                             <li>
-                                <input type="number" value="{{ $item->qty }}">
+                                <input type="number" value="{{ $item->qty }}"
+                                       onchange="updateCart(this.value,'{{$item->rowId}}')">
                             </li>
                             <li>{{ formatprice($item->price) }} đ</li>
                             <li>{{ formatprice($item->price*$item->qty) }} đ</li>
@@ -53,51 +65,37 @@
                             </li>
                         </ul>
                         @endforeach
-                        <a href="#" class="red-button">Tiếp tục mua hàng</a>
+                        <a href="{{ asset('/') }}" class="red-button">Tiếp tục mua hàng</a>
                         <a href="#" class="red-button black">Cập nhật</a>
-
                     </div>
                 </div>
             </div>
 
             <div class="row cart-calculator clearfix">
-                <div class="span4">
-                    <h6>Estimate Shipping & Taxes</h6>
-                    <div class="estimate clearfix">
-                        <form>
-                            <select>
-                                <option>-- Select Your Country --</option>
-                                <option>Pakistan</option>
-                            </select>
-
-                            <select>
-                                <option>-- Select Your Region --</option>
-                            </select>
-
-                            <input type="text" placeholder="Your Postcode">
-                            <input type="submit"  class="red-button" value="Get Quotes" >
-                        </form>
-                    </div>
-                </div>
-
-                <div class="span4">
-                    <h6>Discount Codes</h6>
-                    <div class="estimate clearfix">
-                        <form>
-                            <input type="text" placeholder="Your Postcode">
-                            <input type="submit"  class="red-button" value="Get Quotes" >
-                        </form>
-                    </div>
-                </div>
-
-                <div class="span4 total clearfix">
+                <div class="span4 total">
                     <ul class="black">
                         <li>Tổng Tiền:</li>
                     </ul>
                     <ul class="gray">
                         <li>{{ $total}}</li>
                     </ul>
-                    <a href="#" class="red-button">Proceed to Checkout</a>
+                </div>
+                <div class="span8 clearfix">
+                    <h6>Thông tin khách hàng</h6>
+                    <from>
+                        <lable>Tên</lable>
+                        <input type="text" placeholder="Tên Khánh hàng"/>
+                        <lable>Email</lable>
+                        <input type="email" placeholder="email khach hang"/>
+                        <lable>Địa chỉ</lable>
+                        <input type="text" placeholder="Tên Khánh hàng"/>
+                        <lable>Số Điện thoại</lable>
+                        <input type="number" placeholder="Tên Khánh hàng"/>
+                        <lable>Nôi dung</lable>
+                        <input type="text" placeholder="Tên Khánh hàng"/>
+                        <input type="submit"  class="red-button" value="Xác nhận thanh toán" >
+                    </from>
+                    </div>
                 </div>
             </div>
 

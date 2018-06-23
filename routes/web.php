@@ -26,6 +26,7 @@ Route::group(['prefix'=>'cart'],function (){
     Route::get('add/{id}/',['as'=>'cart.add','uses'=>'CartController@getAddCart']);
     Route::get('show',['as'=>'cart.show','uses'=>'CartController@getShowCart']);
     Route::post('delete/{id}/',['as'=>'cart.delete','uses'=>'CartController@getDeleteCart']);
+    Route::get('update',['as'=>'update.cart','uses'=>'CartController@getUpdateCart']);
 });
 
 Route::get('admin',['as'=>'admin.login','uses'=>'AdminController@showLogin']);

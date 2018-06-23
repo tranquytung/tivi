@@ -23,12 +23,21 @@ class FrontendController extends Controller
     public function getHome(){
         $pay= DB::table('tbl_sanpham')
                     ->join('tbl_hang','tbl_sanpham.Hang_id','=','tbl_hang.id')
+                    ->join('tbl_ktmh','tbl_sanpham.KTMH_id','=','tbl_ktmh.id')
+                    ->join('tbl_loaitivi','tbl_sanpham.LoaiTivi_id','=','tbl_loaitivi.id')
+                    ->join('tbl_dophangiai','tbl_sanpham.Dophangiai_id','=','tbl_dophangiai.id')
                     ->orderBy('pay','desc')->take(8)
                     ->get();
 
 
-        $new =Product::where('new',1)->orderBy('id_sp','desc')->take(8)->get();
-
+        $new = DB::table('tbl_sanpham')
+                    ->join('tbl_hang','tbl_sanpham.Hang_id','=','tbl_hang.id')
+                    ->join('tbl_ktmh','tbl_sanpham.KTMH_id','=','tbl_ktmh.id')
+                    ->join('tbl_loaitivi','tbl_sanpham.LoaiTivi_id','=','tbl_loaitivi.id')
+                    ->join('tbl_dophangiai','tbl_sanpham.Dophangiai_id','=','tbl_dophangiai.id')
+                    ->where('new',1)
+                    ->orderBy('id_sp','desc')->take(8)
+                    ->get();
 
         return view('frontend.home',['pay' => $pay, 'new'=> $new]);
     }
@@ -43,8 +52,15 @@ class FrontendController extends Controller
 
 
     public function getDetail($id){
-        $data['detail']=Product::find($id)->get();
-        return view('frontend.detail',$data);
+        $data = DB::table('tbl_sanpham')
+            ->join('tbl_hang','tbl_sanpham.Hang_id','=','tbl_hang.id')
+            ->join('tbl_ktmh','tbl_sanpham.KTMH_id','=','tbl_ktmh.id')
+            ->join('tbl_loaitivi','tbl_sanpham.LoaiTivi_id','=','tbl_loaitivi.id')
+            ->join('tbl_dophangiai','tbl_sanpham.Dophangiai_id','=','tbl_dophangiai.id')
+            ->where('id_sp',$id)
+            ->get();
+
+        return view('frontend.detail',['detail'=>$data]);
     }
 
     public function getCart(){
@@ -84,6 +100,8 @@ class FrontendController extends Controller
         if($check){
 
             return redirect()->route('home');
+            Request::session()->put('login', true);
+            Request::session()->put('name',$email);
         }else{
             return redirect()->route('login');
         }
