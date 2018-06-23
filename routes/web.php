@@ -30,6 +30,8 @@ Route::group(['prefix'=>'cart'],function (){
     Route::post('show',['as'=>'show.complete','uses'=>'CartController@postComplete']);
 });
 
+Route::get('complete','CartController@getComplete');
+
 Route::get('admin',['as'=>'admin.login','uses'=>'AdminController@showLogin']);
 Route::post('admin',['as'=>'admin.postLogin','uses'=>'AdminController@postLogin']);
 Route::group(['prefix'=>'admin'],function (){

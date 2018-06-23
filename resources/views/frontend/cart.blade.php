@@ -85,22 +85,36 @@
                         <table width="100%">
                             <tr>
                                 <td><lable>Tên</lable></td>
-                                <td ><input  type="text" placeholder="Tên Khánh hàng" name="txt_name"/></td>
+                                <td ><input  type="text" placeholder="Tên Khánh hàng" name="name"/></td>
                                 <td><lable>Email</lable></td>
-                                <td ><input class="fix-input" type="text" placeholder="email khach hang" name="txt_email"/></td>
+                                <td >
+                                    <input class="fix-input" name="email" type="text" placeholder="email khach hang"/>
+                                    @if($errors->has('email'))
+                                        <p>{{  $errors->first('email') }}</p>
+                                    @endif
+                                </td>
+
                             </tr>
                             <tr>
                                 <td><lable>Địa chỉ</lable></td>
-                                <td><input type="text" placeholder="Tên Khánh hàng" name="txt_diachi" /></td>
+                                <td>
+                                    <input type="text" placeholder="Tên Khánh hàng" name="diachi" />
+                                    @if($errors->has('diachi'))
+                                        <p>{{  $errors->first('diachi') }}</p>
+                                    @endif
+                                </td>
                                 <td><lable>Số Điện thoại</lable></td>
                                 <td>
                                     <input class="fix-input" type="text" placeholder="Số điện thoại"
-                                           name="txt_sdt">
+                                           name="sdt">
+                                    @if($errors->has('sdt'))
+                                        <p>{{  $errors->first('sdt') }}</p>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
                                 <td><lable>Nôi dung</lable></td>
-                                <td><input type="text" placeholder="Tên Khánh hàng" name="txt_noidung" /></td>
+                                <td><input type="text" placeholder="Tên Khánh hàng" name="noidung" /></td>
                             </tr>
                             <tr>
                                 <td colspan="2" style="text-align: right;">
