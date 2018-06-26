@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\CategoryId;
+use App\Chitiet;
 use App\Dophangiai;
 use App\Hang;
 use App\Http\Requests\ProductRequest;
@@ -74,8 +75,13 @@ class ProductController extends Controller
     }
 
     public function getDelete($id){
-        $product= Product::find($id);
-        $product->delete($id);
-        return redirect()->route('admin.product.list')->with(['flash_message'=>'Xóa thành công']);
+        $chitiet=Chitiet::where('id_sp','=',$id);
+        if($chitiet){
+            return redirect()->route('admin.product.list')->with(['flash_message'=>'Sản phẩm này tồn tại hóa dớn']);
+        }else{
+            $product= Product::find($id);
+            $product->delete($id);
+            return redirect()->route('admin.product.list')->with(['flash_message'=>'Xóa thành công']);
+        }
     }
 }

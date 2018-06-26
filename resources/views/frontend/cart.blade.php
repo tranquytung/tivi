@@ -89,7 +89,7 @@
                                 <td><lable>Email</lable></td>
                                 <td >
                                     <input class="fix-input" name="email" type="text" placeholder="email khach hang"/>
-                                    @if($errors->has('email'))
+                                    @if($errors->has('txt_email'))
                                         <p>{{  $errors->first('email') }}</p>
                                     @endif
                                 </td>

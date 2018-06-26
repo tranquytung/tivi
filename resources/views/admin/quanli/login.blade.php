@@ -31,6 +31,11 @@
                 <!-- /.login-logo -->
                 <div class="login-box-body">
                     <p class="login-box-msg">Hãy đăng nhập vào phần mềm hay</p>
+                    @if(Session::has('login_admin'))
+                        <div class="callout callout-success">
+                            <p>{{  Session::get('login_admin') }}</p>
+                        </div>
+                    @endif
                     <form  method="post" action="{{ route('admin.postLogin') }}" >
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group has-feedback">

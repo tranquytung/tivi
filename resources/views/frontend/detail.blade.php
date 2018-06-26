@@ -52,15 +52,9 @@
                                 <div id="carousel" class="cool-carousel">
                                     <span id="image1"><img src="{{ asset('upload/product/image/'.$item->anh )}}" alt=""/></span>
 
-                                    @foreach($images as $item)
-                                    <span id="image2"><img src="{{ asset('upload/product/image/'.$item->anh )}}" alt="" /></span>
-                                    @endforeach
-                                    {{--<span id="image3"><img src="http://placehold.it/470x311" alt="" /></span>
-                                    <span id="image4"><img src="http://placehold.it/470x311" alt=""/></span>
-                                    <span id="image5"><img src="http://placehold.it/470x311" alt=""/></span>
-                                    <span id="image6"><img src="http://placehold.it/470x311" alt="" /></span>
-                                    <span id="image7"><img src="http://placehold.it/470x311" alt="" /></span>
-                                    <span id="image8"><img src="http://placehold.it/470x311" alt=""/></span>--}}
+                                    <?php $stt=2 ;foreach($images as $item) :?>
+                                    <span id="image.{{$stt}}"><img src="{{ asset('upload/product/image/'.$item->anh )}}" alt="" /></span>
+                                    <?php endforeach; $stt++?>
                                 </div>
                                 <a href="#" class="prev"></a><a href="#" class="next"></a>
                             </div>
@@ -69,15 +63,9 @@
                                 <div id="thumbs-wrapper">
                                     <div id="thumbs">
                                         <a href="#image1" class="selected"><img src="{{ asset('upload/product/image/'.$item->anh )}}"  alt="" /></a>
-                                        @foreach($images as $item)
-                                        <a href="#image2"><img src="{{ asset('upload/product/image/'.$item->anh )}}" alt="" /></a>
-                                        @endforeach
-                                        {{--<a href="#image3"><img src="http://placehold.it/97x60" alt=""/></a>
-                                        <a href="#image4"><img src="http://placehold.it/97x60" alt=""/></a>
-                                        <a href="#image5"><img src="http://placehold.it/97x60"  alt=""/></a>
-                                        <a href="#image6"><img src="http://placehold.it/97x60"  alt=""/></a>
-                                        <a href="#image7"><img src="http://placehold.it/97x60" alt=""/></a>
-                                        <a href="#image8"><img src="http://placehold.it/97x60" alt=""/></a>--}}
+                                        <?php $stt=2 ;foreach($images as $item) :?>
+                                        <span id="image.{{$stt}}"><img src="{{ asset('upload/product/image/'.$item->anh )}}" alt="" /></span>
+                                        <?php  $stt++ ; endforeach;?>
                                     </div>
                                     <a id="prev" href="#"></a>
                                     <a id="next" href="#"></a>
@@ -194,18 +182,6 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="widget">
-                            <h4>Price Filter</h4>
-
-                            <div class="price-range">
-                                <div id="slider-range"></div>
-                                <p class="clearfix">
-                                    <input type="text" id="amount" />
-                                    <input type="text" id="amount2" />
-                                </p>
                             </div>
                         </div>
 

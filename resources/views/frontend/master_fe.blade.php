@@ -43,11 +43,13 @@
                             <div class="span10 right">
                                 <div class="social-strip">
                                     <ul>
-                                        {{--@if(Session::has('login')&& Session::get('login') == true)--}}
-                                            <li><a href="#" class="account"> xin chào {{ Session::get('name') }}</a></li>
-                                            <li><a href="#" class="account">My Account</a></li>
-                                            <li><a href="{{ asset('login') }}" class="check">Checkout</a></li>
-                                        {{--@endif--}}
+                                        @if(Session::has('user'))
+                                            <li><a href="" class="account"> xin chào {{ Session::get('user') }}</a></li>
+                                            <li><a href="{{ asset('logout') }}" class="check"> Đăng xuất</a></li>
+                                        @else
+                                            <li><a href="{{ asset('dangky') }}" class="check">Đăng Ký</a></li>
+                                            <li><a href="{{ asset('login') }}" class="account">Đăng Nhập</a></li>
+                                        @endif
                                     </ul>
                                 </div>
 

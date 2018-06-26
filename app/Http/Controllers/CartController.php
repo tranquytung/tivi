@@ -39,32 +39,29 @@ class CartController extends Controller
 
     public function postComplete(Request $request){
 
-        $this->validate($request,
+       /* $this->validate($request,
             [
-                'email'=>'required|email',
+                'txt_email'=>'required|email',
                 'sdt'=>'required|number',
                 'diachi'=>'required'
             ],
 
             [
-                'email.required'=>'Bạn không được để trống',
-                'email.email'=>'Email Không dung dinh dang',
+                'txt_email.required'=>'Bạn không được để trống',
+                'txt_email.email'=>'Email Không dung dinh dang',
                 'sdt.required'=>'Bạn không được để trống',
                 'sdt.number'=>'Bạn phải nhập số',
                 'diachi.required'=>'Bạn không được để trống'
-            ]);
+            ]);*/
 
-        $tongtien=Cart::total();
 
         $cart=Cart::content();
-
         $order=new Order();
         $order->username=$request->name;
-        $order->email=$request->name;
+        $order->email=$request->email;
         $order->sdt=$request->sdt;
         $order->diachi=$request->diachi;
         $order->noidung=$request->noidung;
-        $order->tongtien=$request->$tongtien;
 
         $order->save();
         $id_donhang = $order->id;

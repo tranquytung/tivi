@@ -84,14 +84,22 @@
                     </div>
 
                     <div class="pagination clearfix">
-                        <p>Items 1 to 9 of 12 total</p>
-                        <ul class="clearfix">
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">></a></li>
-                        </ul>
+                        <p>Tổng sản phẩm {{ $data->count() }}</p>
+                        @if($data->lastPage()>1)
+                            <ul class="clearfix">
+                                @if($data->currentPage()!=1)
+                                    <li><a href="{{ str_replace('/?','?',$data->url($data->currentPage() - 1)) }}"><</a></li>
+                                @endif
+                                @for($i=1;$i <= $data->lastPage();$i++)
+                                    <li class="{{ $data->currentPage() == $i  ? 'active' : '' }}">
+                                        <a href="{{ str_replace('/?','?',$items->url($i)) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                @if($data->currentPage()==$data->lastPage())
+                                    <li><a href="{{ str_replace('/?','?',$data->url($data->currentPage() + 1)) }}"> > </a></li>
+                                @endif
+                            </ul>
+                        @endif
                     </div>
                 </div>
 
@@ -149,17 +157,6 @@
 
                         </div>
 
-                        <div class="widget">
-                            <h4>Price Filter</h4>
-
-                            <div class="price-range">
-                                <div id="slider-range"></div>
-                                <p class="clearfix">
-                                    <input type="text" id="amount" />
-                                    <input type="text" id="amount2" />
-                                </p>
-                            </div>
-                        </div>
 
                         <div class="widget">
                             <h4>Featured Products</h4>

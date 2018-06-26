@@ -6,6 +6,7 @@ use App\Admin;
 use App\Http\Requests\AdminRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -21,12 +22,17 @@ class AdminController extends Controller
         $check = Auth::guard('admin')->attempt(['email'=>$email,'password'=>$pass]);
 
         if($check){
-
-            return redirect()->route('admin.product.list');
+            /*$ten=DB::table('tbl_admin')->select('name','email')->where('email','=',$email)->get();*/
+            return redirect()->route('admin.product.list')->with(['ten'=>$email]);
         }else{
             return redirect()->route('admin.login');
         }
 
+    }
+
+    public function getLogout(){
+        session()->forget('ten');
+        return redirect()->route('admin.login');
     }
 
     public function getList(){

@@ -12,14 +12,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class FrontendController extends Controller
 {
-    /*public function getHome(){
-        $data['pay'] =Product::orderBy('pay','desc')->take(8)->get();
-        $data['new'] =Product::where('new',1)->orderBy('id_sp','desc')->take(8)->get();
-        return view('frontend.home',$data);
-    }*/
+
 
     public function getHome(){
         $pay= DB::table('tbl_sanpham')
@@ -52,7 +49,7 @@ class FrontendController extends Controller
                 ->join('tbl_loaitivi','tbl_sanpham.LoaiTivi_id','=','tbl_loaitivi.id')
                 ->join('tbl_dophangiai','tbl_sanpham.Dophangiai_id','=','tbl_dophangiai.id')
                 ->where('tbl_danhmuc.id',$id)
-                ->get();
+                ->paginate(9);
 
         return view('frontend.product',['data'=>$data]);
     }
@@ -107,10 +104,7 @@ class FrontendController extends Controller
         $check = Auth::guard('user1')->attempt(['email'=>$email,'password'=>$pass]);
 
         if($check){
-
-            return redirect()->route('home');
-            Request::session()->put('login', true);
-            Request::session()->put('name',$email);
+            return redirect()->route('home')->with(['user'=>$email]);;
         }else{
             return redirect()->route('login');
         }
@@ -146,5 +140,10 @@ class FrontendController extends Controller
         $user->save();
 
         return redirect()->route('login');
+    }
+
+    public function getLogout(){
+        session()->forget('user');
+        return redirect()->route('home');
     }
 }
