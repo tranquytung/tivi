@@ -82,14 +82,24 @@
                     <h6>Thông tin khách hàng</h6>
                     <form method="post" action="{{ route('show.complete') }}" >
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                       @if(Session::has('user'))
+
                         <table width="100%">
+                            @foreach($khanhang as $item)
                             <tr>
                                 <td><lable>Tên</lable></td>
-                                <td ><input  type="text" placeholder="Tên Khánh hàng" name="name"/></td>
+                                <td >
+                                    <input  type="text" placeholder="Tên Khánh hàng" name="name"
+                                            value="{{ $item['username'] }}"/>
+                                    @if($errors->has('name'))
+                                        <p>{{  $errors->first('name') }}</p>
+                                    @endif
+                                </td>
                                 <td><lable>Email</lable></td>
                                 <td >
-                                    <input class="fix-input" name="email" type="text" placeholder="email khach hang"/>
-                                    @if($errors->has('txt_email'))
+                                    <input class="fix-input" name="email" type="text" placeholder="email khach hang"
+                                           value="{{ $item['email'] }}"/>
+                                    @if($errors->has('email'))
                                         <p>{{  $errors->first('email') }}</p>
                                     @endif
                                 </td>
@@ -98,7 +108,8 @@
                             <tr>
                                 <td><lable>Địa chỉ</lable></td>
                                 <td>
-                                    <input type="text" placeholder="Tên Khánh hàng" name="diachi" />
+                                    <input type="text" placeholder="Địa Chỉ Khánh hàng" name="diachi"
+                                           value="{{ $item['diachi'] }}"/>
                                     @if($errors->has('diachi'))
                                         <p>{{  $errors->first('diachi') }}</p>
                                     @endif
@@ -106,7 +117,7 @@
                                 <td><lable>Số Điện thoại</lable></td>
                                 <td>
                                     <input class="fix-input" type="text" placeholder="Số điện thoại"
-                                           name="sdt">
+                                           name="sdt" value="{{ $item['sdt'] }}">
                                     @if($errors->has('sdt'))
                                         <p>{{  $errors->first('sdt') }}</p>
                                     @endif
@@ -121,7 +132,56 @@
                                     <input type="submit" class="red-button" value="Xác nhận thanh toán" >
                                 </td>
                             </tr>
+                            @endforeach
                         </table>
+
+                        @else
+                            <table width="100%">
+                                <tr>
+                                    <td><lable>Tên</lable></td>
+                                    <td >
+                                        <input  type="text" placeholder="Tên Khánh hàng" name="name"/>
+                                        @if($errors->has('name'))
+                                            <p>{{  $errors->first('name') }}</p>
+                                        @endif
+                                    </td>
+                                    <td><lable>Email</lable></td>
+                                    <td >
+                                        <input class="fix-input" name="email" type="text" placeholder="email khach hang"/>
+                                        @if($errors->has('email'))
+                                            <p>{{  $errors->first('email') }}</p>
+                                        @endif
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td><lable>Địa chỉ</lable></td>
+                                    <td>
+                                        <input type="text" placeholder="Địa Chỉ Khánh hàng" name="diachi" />
+                                        @if($errors->has('diachi'))
+                                            <p>{{  $errors->first('diachi') }}</p>
+                                        @endif
+                                    </td>
+                                    <td><lable>Số Điện thoại</lable></td>
+                                    <td>
+                                        <input class="fix-input" type="text" placeholder="Số điện thoại"
+                                               name="sdt">
+                                        @if($errors->has('sdt'))
+                                            <p>{{  $errors->first('sdt') }}</p>
+                                        @endif
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><lable>Nôi dung</lable></td>
+                                    <td><input type="text" placeholder="Nội dung" name="noidung" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align: right;">
+                                        <input type="submit" class="red-button" value="Xác nhận thanh toán" >
+                                    </td>
+                                </tr>
+                            </table>
+                        @endif
                     </form>
                     </div>
                 </div>

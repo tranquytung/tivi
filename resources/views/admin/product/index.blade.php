@@ -5,7 +5,6 @@
     <a href="{{ route('admin.product.getAdd') }}" class="btn btn-xs btn-success"><i class="fa fa-plus"></i></a>
 @endsection
 @section('content')
-
     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
         <div class="row">
             <div class="col-sm-12">
@@ -37,8 +36,9 @@
                                         <li>Số lượng&nbsp;:&nbsp; {{ $item['soluong'] }}</li>
                                     </ul>
                                 </td>
-                                <td class="sorting_1">
-                                    <a href="" >{{ $item['active']==1 ? 'Hiện' : 'Ẩn' }}</a>
+                                <td class="sorting_1" >
+                                    <a href="" class="{{ $item['active']==1 ? 'btn btn-xs btn-primary' : "btn btn-xs btn-success"}}">
+                                        {{ $item['active']==1 ? 'Hiện' : 'Ẩn' }}</a>
                                 </td>
                                 <td class="">
                                     <a href="{{ URL::route('admin.product.getEdit',$item['id_sp']) }}" class="btn btn-xs btn-primary">

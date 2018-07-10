@@ -114,10 +114,10 @@
         <section class="sidebar">
            <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">MAIN NAVIGATION</li>
+                <li class="header">CHẮC NĂNG QUẢN LÝ</li>
                 <li class="treeview">
                     <a href="{{ url("#") }}">
-                        <i class="fa fa-dashboard"></i> <span>Thông Kê</span>
+                        <i class="fa fa-dashboard"></i> <span>Thống Kê</span>
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
@@ -134,7 +134,7 @@
                         <li><a href="{{ route('admin.category.list') }}"><i class="fa fa-circle-o"></i>Danh mục</a></li>
                         <li><a href="{{ route('admin.hang.list') }}"><i class="fa fa-circle-o"></i>Quản Lý Hãng</a></li>
                         <li><a href="{{ route('admin.ktmh.list') }}"><i class="fa fa-circle-o"></i>Kích thước màn hình</a></li>
-                        <li><a href="{{ route('admin.loaitivi.list') }}"><i class="fa fa-circle-o"></i> Loại ti vi </a></li>
+                        <li><a href="{{ route('admin.loaitivi.list') }}"><i class="fa fa-circle-o"></i>Loại ti vi </a></li>
                         <li><a href="{{ route('admin.dophangiai.list') }}"><i class="fa fa-circle-o"></i>Độ phân giải</a></li>
                         <li><a href="{{ route('admin.product.list') }}"><i class="fa fa-circle-o"></i>Sản phẩm</a></li>
                     </ul>
@@ -155,8 +155,7 @@
                         <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ route('admin.quanli.list') }}"><i class="fa fa-circle-o"></i>Chưa thanh toán</a></li>
-                        <li><a href="{{ route('admin.users.list') }}"><i class="fa fa-circle-o"></i>Đã thanh toán</a></li>
+                        <li><a href="{{ route('admin.hoadon.list') }}"><i class="fa fa-circle-o"></i>Thanh Toan</a></li>
                     </ul>
                 </li>
 
@@ -221,7 +220,7 @@
         <div class="pull-right hidden-xs">
             <b>Phiên bản</b> 2.4.1
         </div>
-        <strong>Copyright &copy; 2018 <a href="">Nhóm Tùng Long</a>.</strong>
+        <strong>Copyright &copy; 2018 <a href="">Đồ án tốt nghiệp Trần Quý Tùng</a>.</strong>
     </footer>
 
 </div>

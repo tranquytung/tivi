@@ -64,15 +64,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-md-3 control-label">Sản phẩm mới</label>
-                            <div class="col-md-8">
-                                <select name="sl_new" id="" class="form-control">
-                                    <option value="0">Không</option>
-                                    <option value="1">Có</option>
-                                </select>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
@@ -131,9 +123,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-md-3 control-label">Ảnh</label>
+                            <label for="inputEmail3" class="col-md-3 control-label">Sản phẩm mới</label>
                             <div class="col-md-8">
-                                <input multiple type="file" class="form-control" id="inputEmail3" name="anh[]">
+                                <select name="sl_new" id="" class="form-control">
+                                    <option value="0">Không</option>
+                                    <option value="1">Có</option>
+                                </select>
                             </div>
                         </div>
                     </div>

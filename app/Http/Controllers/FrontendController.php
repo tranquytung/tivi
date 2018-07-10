@@ -8,6 +8,7 @@ use App\Hang;
 use App\Product;
 use App\ProductImage;
 use App\Users;
+use Gloudemans\Shoppingcart\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,8 +17,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class FrontendController extends Controller
 {
-
-
     public function getHome(){
         $pay= DB::table('tbl_sanpham')
                     ->join('tbl_hang','tbl_sanpham.Hang_id','=','tbl_hang.id')
@@ -64,9 +63,7 @@ class FrontendController extends Controller
             ->where('id_sp', $id)
             ->get();
 
-        $images = ProductImage::where('id_sp', '=', $id)->get();
-
-        return view('frontend.detail',['detail'=>$data,'images'=>$images]);
+        return view('frontend.detail',['detail'=>$data]);
     }
 
     public function getCart(){
@@ -104,7 +101,10 @@ class FrontendController extends Controller
         $check = Auth::guard('user1')->attempt(['email'=>$email,'password'=>$pass]);
 
         if($check){
-            return redirect()->route('home')->with(['user'=>$email]);;
+            /*Cart::destroy();*/
+            session()->put('user', $email);
+            return redirect()->route('home');
+
         }else{
             return redirect()->route('login');
         }
@@ -143,6 +143,7 @@ class FrontendController extends Controller
     }
 
     public function getLogout(){
+        /*Cart::destroy();*/
         session()->forget('user');
         return redirect()->route('home');
     }

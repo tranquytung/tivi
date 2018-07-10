@@ -23,7 +23,8 @@ class AdminController extends Controller
 
         if($check){
             /*$ten=DB::table('tbl_admin')->select('name','email')->where('email','=',$email)->get();*/
-            return redirect()->route('admin.product.list')->with(['ten'=>$email]);
+            session()->put('ten', $email);
+            return redirect()->route('admin.product.list');
         }else{
             return redirect()->route('admin.login');
         }

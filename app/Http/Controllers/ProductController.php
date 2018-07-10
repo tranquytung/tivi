@@ -63,25 +63,25 @@ class ProductController extends Controller
                 $product_img->save();
             }
         }
-        if($cates=$request->sl_category){
+        /*if($cates=$request->sl_category){
             foreach ($cates as $cate){
                 $cate_id=new CategoryId();
                 $cate_id->danhmuc_id=$cate;
                 $cate_id->sp_id=$id_sp;
                 $cate_id->save();
             }
-        }
+        }*/
         return redirect()->route('admin.product.list')->with(['flash_message'=>'Thêm thành công']);
     }
 
     public function getDelete($id){
-        $chitiet=Chitiet::where('id_sp','=',$id);
+        /*$chitiet=Chitiet::where('id_sp','=',$id);
         if($chitiet){
             return redirect()->route('admin.product.list')->with(['flash_message'=>'Sản phẩm này tồn tại hóa dớn']);
-        }else{
+        }else{*/
             $product= Product::find($id);
             $product->delete($id);
             return redirect()->route('admin.product.list')->with(['flash_message'=>'Xóa thành công']);
-        }
+        /*}*/
     }
 }

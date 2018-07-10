@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Chitiet;
 use App\Order;
 use App\Product;
+use App\Users;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Cart;
 use Email;
@@ -23,9 +25,15 @@ class CartController extends Controller
     }
 
     public function getShowCart(){
+
+        $value=session()->get('user');
+
         $data['items']=Cart::content();
         $data['total']=Cart::total();
-        return view('frontend.cart',$data);
+        $khanhang=Users::Where('email','=',$value)->get();
+
+        return view('frontend.cart',$data,['khanhang'=>$khanhang]);
+
     }
 
     public function getDeleteCart($id){
@@ -39,20 +47,19 @@ class CartController extends Controller
 
     public function postComplete(Request $request){
 
-       /* $this->validate($request,
+        $this->validate($request,
             [
-                'txt_email'=>'required|email',
-                'sdt'=>'required|number',
-                'diachi'=>'required'
+                'name'=>'required',
+                'email'=>'required|email',
+                'diachi' => 'required'
             ],
 
             [
-                'txt_email.required'=>'Bạn không được để trống',
-                'txt_email.email'=>'Email Không dung dinh dang',
-                'sdt.required'=>'Bạn không được để trống',
-                'sdt.number'=>'Bạn phải nhập số',
-                'diachi.required'=>'Bạn không được để trống'
-            ]);*/
+                'name.required'=>'Bạn không được để trống',
+                'email.required'=>'Bạn không được để trống',
+                'email.email' => 'Không đúng đinh dang email',
+                'diachi.required' => 'Bạn không được để trống'
+            ]);
 
 
         $cart=Cart::content();
@@ -70,7 +77,7 @@ class CartController extends Controller
             $chitiet=new Chitiet();
             $chitiet->id_donhang=$id_donhang;
             $chitiet->id_sp=$value->id;
-            $chitiet->soluong=$value->qty;
+            $chitiet->number=$value->qty;
             $chitiet->gia=$value->price;
             $chitiet->save();
         }

@@ -111,4 +111,9 @@ Route::group(['prefix'=>'admin'],function (){
         Route::post('edit/{id}',['as'=>'admin.users.postEdit','uses'=>'UsersController@postEdit'])->middleware('admin.auth');
         Route::post('search',['as'=>'admin.users.postSearch','uses'=>'UsersController@postSearch'])->middleware('admin.auth');
     });
+    Route::group(['prefix'=>'hoadon'],function (){
+        Route::get('list',['as'=>'admin.hoadon.list','uses'=>'HoadonController@getList'])->middleware('admin.auth');
+        Route::get('delete/{id}',['as'=>'admin.hoadon.getDelete','uses'=>'HoadonController@getDelete'])->middleware('admin.auth');
+        Route::get('view/{id}',['as'=>'admin.hoadon.getView','uses'=>'HoadonController@getView'])->middleware('admin.auth');
+    });
 });

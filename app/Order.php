@@ -8,7 +8,7 @@ class Order extends Model
 {
     protected $table ='tbl_donhang';
 
-    protected $fillable=['id','username','email','sdt','diachi','noidung','tongtien','khanhhang_id'];
+    protected $fillable=['id','username','email','sdt','diachi','noidung','status','khanhhang_id'];
 
     public $timestamps=false;
 }
