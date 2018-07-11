@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2018 at 01:11 PM
+-- Generation Time: Jul 12, 2018 at 02:36 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -63,25 +63,6 @@ INSERT INTO `tbl_admin` (`id`, `name`, `email`, `diachi`, `sdt`, `password`, `re
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_anh`
---
-
-CREATE TABLE `tbl_anh` (
-  `id` int(11) NOT NULL,
-  `anh` text COLLATE utf8_unicode_ci NOT NULL,
-  `id_sp` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_anh`
---
-
-INSERT INTO `tbl_anh` (`id`, `anh`, `id_sp`) VALUES
-(20, '-0m2lRs.png', 32);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tbl_chitiethd`
 --
 
@@ -89,9 +70,18 @@ CREATE TABLE `tbl_chitiethd` (
   `id` int(11) NOT NULL,
   `id_sp` int(11) NOT NULL,
   `id_donhang` int(11) NOT NULL,
-  `soluong` int(11) NOT NULL,
+  `number` int(11) NOT NULL,
   `gia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tbl_chitiethd`
+--
+
+INSERT INTO `tbl_chitiethd` (`id`, `id_sp`, `id_donhang`, `number`, `gia`) VALUES
+(2, 4, 2, 1, 9775000),
+(3, 4, 3, 1, 9775000),
+(4, 3, 4, 1, 12150000);
 
 -- --------------------------------------------------------
 
@@ -112,9 +102,9 @@ CREATE TABLE `tbl_danhmuc` (
 --
 
 INSERT INTO `tbl_danhmuc` (`id`, `name`, `active`, `slug`, `created_at`) VALUES
-(2, 'Sản Xuất Trong Nước', 1, 'san-xuat-trong-nuoc', '2018-04-23 13:54:00'),
-(4, 'Sản Xuất Ngoài Nước', 1, 'san-xuat-ngoai-nuoc', '2018-04-24 07:09:01'),
-(5, 'Kết nối bàn phím và chuột', 1, 'ket-noi-ban-phim-va-chuot', '2018-06-06 15:29:24');
+(6, 'Sản Xuất Trong Nước', 1, 'san-xuat-trong-nuoc', '2018-07-10 06:45:16'),
+(7, 'Sản Xuất Ngoài Nước', 1, 'san-xuat-ngoai-nuoc', '2018-07-10 06:45:42'),
+(8, 'Kết nối bàn phím và chuột', 1, 'ket-noi-ban-phim-va-chuot', '2018-07-10 06:46:50');
 
 -- --------------------------------------------------------
 
@@ -133,9 +123,15 @@ CREATE TABLE `tbl_danhmuc_sp` (
 --
 
 INSERT INTO `tbl_danhmuc_sp` (`id`, `danhmuc_id`, `sp_id`) VALUES
-(8, 4, 32),
-(9, 5, 32),
-(10, 4, 33);
+(3, 6, 3),
+(4, 7, 3),
+(5, 7, 4),
+(6, 8, 4),
+(7, 6, 5),
+(8, 7, 6),
+(9, 8, 7),
+(10, 6, 8),
+(11, 7, 8);
 
 -- --------------------------------------------------------
 
@@ -146,14 +142,22 @@ INSERT INTO `tbl_danhmuc_sp` (`id`, `danhmuc_id`, `sp_id`) VALUES
 CREATE TABLE `tbl_donhang` (
   `id` int(11) NOT NULL,
   `username` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ngaydat` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `sdt` int(11) NOT NULL,
   `diachi` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `noidung` text COLLATE utf8_unicode_ci,
-  `tongtien` int(11) NOT NULL,
-  `khanhhang_id` int(11) NOT NULL
+  `status` tinyint(4) DEFAULT '0',
+  `khanhhang_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tbl_donhang`
+--
+
+INSERT INTO `tbl_donhang` (`id`, `username`, `email`, `sdt`, `diachi`, `noidung`, `status`, `khanhhang_id`) VALUES
+(2, 'User', 'user@gmail.com', 973951802, 'Cầu Giấy - Hà Nội', NULL, 1, NULL),
+(3, 'User', 'user@gmail.com', 973951802, 'Cầu Giấy - Hà Nội', NULL, 1, NULL),
+(4, 'User', 'user@gmail.com', 973951802, 'Cầu Giấy - Hà Nội', NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -171,9 +175,7 @@ CREATE TABLE `tbl_dophangiai` (
 --
 
 INSERT INTO `tbl_dophangiai` (`id`, `dophangiai`) VALUES
-(2, '1080 Full HD'),
-(3, '4K Ultra HD'),
-(4, '720 HD 1');
+(5, '1080 Full HD');
 
 -- --------------------------------------------------------
 
@@ -192,12 +194,12 @@ CREATE TABLE `tbl_hang` (
 --
 
 INSERT INTO `tbl_hang` (`id`, `tenhang`, `hinhanh`) VALUES
-(32, 'sony', 'Sony1.png'),
-(44, 'Panasonic', 'Panasonic1.png'),
-(46, 'Asanzo', 'Asanzo1.png'),
-(48, 'Samsung', 'Samsung1.png'),
-(51, 'LG', 'lg.png'),
-(52, 'TCL', 'tcl.png');
+(53, 'Samsung', 'Samsung1.png'),
+(54, 'panasonic', 'Panasonic1.png'),
+(55, 'Toshiba', 'Toshiba1942-s_53.png'),
+(56, 'skyworth', 'Skyworth1942-s_53.png'),
+(57, 'sony', 'Sony1.png'),
+(58, 'LQ', 'lg.png');
 
 -- --------------------------------------------------------
 
@@ -221,7 +223,7 @@ CREATE TABLE `tbl_khanhhang` (
 --
 
 INSERT INTO `tbl_khanhhang` (`id`, `username`, `email`, `password`, `sdt`, `diachi`, `create_at`, `update_at`) VALUES
-(1, 'Trần Tùng 12', 'tranquytung96@gmail.com', '$2y$10$mrgOqTnamHr2jW/U8vCP4ecvitYG71AgTYCgL9oma85Fn4ZxFosDa', 973951802, 'Cầu Giấy', '2018-06-15 09:23:36', '2018-06-15 09:23:36');
+(3, 'User', 'user@gmail.com', '$2y$10$LNa2OX2hVnwJAJ5rUUYVYOlVTa3y2sdiK5iw61lFclB1Hhn0t4ocS', 973951802, 'Cầu Giấy - Hà Nội', '2018-07-10 07:04:19', '2018-07-10 07:04:19');
 
 -- --------------------------------------------------------
 
@@ -239,12 +241,8 @@ CREATE TABLE `tbl_ktmh` (
 --
 
 INSERT INTO `tbl_ktmh` (`id`, `kichthuoc`) VALUES
-(1, '42'),
-(2, '32'),
-(3, '43'),
-(4, '49'),
-(5, '55'),
-(6, '65');
+(7, '42'),
+(8, '55');
 
 -- --------------------------------------------------------
 
@@ -262,11 +260,10 @@ CREATE TABLE `tbl_loaitivi` (
 --
 
 INSERT INTO `tbl_loaitivi` (`id`, `loaitivi`) VALUES
-(5, 'TV 4K HDR'),
-(7, 'TV 4K'),
-(8, 'Smart TV'),
-(9, 'Internet TV'),
-(10, 'OLED TV');
+(16, 'Internet TV'),
+(17, 'TV 4K HDR'),
+(18, 'TV 3D'),
+(19, 'Smart tv');
 
 -- --------------------------------------------------------
 
@@ -299,8 +296,12 @@ CREATE TABLE `tbl_sanpham` (
 --
 
 INSERT INTO `tbl_sanpham` (`id_sp`, `TenSP`, `slug`, `Gia`, `sale`, `anh`, `KTMH_id`, `LoaiTivi_id`, `Hang_id`, `Dophangiai_id`, `soluong`, `noidung`, `pay`, `new`, `active`, `created_at`, `upadated_at`) VALUES
-(32, 'Tivi LG UJ632T', 'tivi-lg-uj632t', 12000000, 0, '-0m2lRs.png', NULL, 5, 32, 2, 100, '<p>hi</p>', 10, 0, 1, '2018-06-15 01:25:07', '2018-06-15 02:03:37'),
-(33, 'Tivi Sony W800F', 'tivi-sony-w800f', 12000000, 40, '-0m2lRs.png', 1, 5, 32, 2, 10000, '<p>u9</p>', 11, 1, 1, '2018-06-15 01:31:19', '2018-06-15 02:02:21');
+(3, 'Tivi Sony W800F', 'tivi-sony-w800f', 13500000, 10, 'thumb_android-tivi-sony-43-inch-43w800f-hdr-mxr-200hz-0055x8.png', 7, 19, 57, 5, 100, NULL, 0, 1, 1, '2018-07-11 13:30:45', '2018-07-11 13:30:45'),
+(4, 'Tivi Sony W660F', 'tivi-sony-w660f', 11500000, 15, 'smart-tivi-sony-43-inch-43w660f-hdr-mxr-200hz-Oza1Q5.png', 7, 16, 53, 5, 100, '<h3>Thông tin: Smart Tivi Sony 43 inch 43W660F, HDR, MXR 200Hz</h3>\r\n\r\n<div class=\"pd-news-content\">\r\n<h4 style=\"text-align:justify\"><strong>Rõ nét hơn, chi tiết hơn với Full HD</strong></h4>\r\n\r\n<p style=\"text-align:justify\"><strong>Smart Tivi Sony 43W660F&nbsp;43 inch</strong> được trang bị&nbsp;màn hình Full HD 1080p. Với độ phân giải 1920 x 1080 pixel, màn hình Full HD mang đến hình ảnh chi tiết hơn gấp 5 lần so với hình ảnh độ nét tiêu chuẩn. Mọi nội dung bạn xem sẽ sắc nét, rõ ràng và chân thực hơn với độ nhiễu tối thiểu và hiệu ứng tối đa.</p>\r\n</div>\r\n\r\n<h4 style=\"text-align:justify\"><strong>Khám phá lại từng chi tiết hình ảnh với công nghệ X-Reality&trade; PRO</strong></h4>\r\n\r\n<p style=\"text-align:justify\">Công nghệ xử lý hình ảnh X-Reality PRO trên <strong>Smart Tivi Sony 43W660F&nbsp;</strong>sẽ nâng cấp từng điểm ảnh để mang đến độ rõ nét vượt trội xứng tầm Full HD. Trong khi phân tích các khung hình, mỗi cảnh sẽ được đối chiếu với cơ sở dữ liệu hình ảnh đặc biệt của chúng tôi để tinh chỉnh hình ảnh và giảm nhiễu. Xem cấu trúc của tòa nhà đã được tăng cường chi tiết như thế nào.</p>\r\n\r\n<p>&nbsp;</p>', 0, 1, 1, '2018-07-11 13:59:31', '2018-07-11 13:59:31'),
+(5, 'LE380X', 'le380x', 123457890, 10, '-0m2lRs.png', 7, 16, 53, 5, 19, '<p>hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>', 0, 1, 1, '2018-07-11 16:23:55', '2018-07-11 16:23:55'),
+(6, 'LE380X', 'le380x', 120000, 10, '-0m2lRs.png', 7, 16, 53, 5, 100, '<p>hi</p>', 0, 1, 1, '2018-07-11 23:53:18', '2018-07-11 23:53:18'),
+(7, 'LE380X', 'le380x', 1200000, 20, 'hi.png', 7, 16, 53, 5, 200, '<h3>Thông tin: Internet Tivi Sony 43 inch 43W750E Full HD, MXR 200Hz</h3>\r\n\r\n<p><strong>W75E - Khai mở thế giới màu sắc tự nhiên</strong></p>', 0, 1, 1, '2018-07-11 23:56:26', '2018-07-11 23:56:26'),
+(8, 'LE380X', 'le380x', 1200000000, 20, 'tvi1.png', 7, 16, 53, 5, 1000, '<h3>Thông tin: Internet Tivi Sony 43 inch 43W750E Full HD, MXR 200Hz</h3>\r\n\r\n<p><strong>W75E - Khai mở thế giới màu sắc tự nhiên</strong></p>', 0, 1, 1, '2018-07-12 00:01:13', '2018-07-12 00:01:13');
 
 --
 -- Indexes for dumped tables
@@ -317,13 +318,6 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tbl_anh`
---
-ALTER TABLE `tbl_anh`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_sp` (`id_sp`);
 
 --
 -- Indexes for table `tbl_chitiethd`
@@ -411,109 +405,97 @@ ALTER TABLE `tbl_admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_anh`
---
-ALTER TABLE `tbl_anh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
 -- AUTO_INCREMENT for table `tbl_chitiethd`
 --
 ALTER TABLE `tbl_chitiethd`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_danhmuc`
 --
 ALTER TABLE `tbl_danhmuc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_danhmuc_sp`
 --
 ALTER TABLE `tbl_danhmuc_sp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_donhang`
 --
 ALTER TABLE `tbl_donhang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_dophangiai`
 --
 ALTER TABLE `tbl_dophangiai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_hang`
 --
 ALTER TABLE `tbl_hang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `tbl_khanhhang`
 --
 ALTER TABLE `tbl_khanhhang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_ktmh`
 --
 ALTER TABLE `tbl_ktmh`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_loaitivi`
 --
 ALTER TABLE `tbl_loaitivi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
-  MODIFY `id_sp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_sp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `tbl_anh`
---
-ALTER TABLE `tbl_anh`
-  ADD CONSTRAINT `tbl_anh_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `tbl_sanpham` (`id_sp`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `tbl_chitiethd`
 --
 ALTER TABLE `tbl_chitiethd`
-  ADD CONSTRAINT `tbl_chitiethd_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `tbl_sanpham` (`id_sp`),
-  ADD CONSTRAINT `tbl_chitiethd_ibfk_2` FOREIGN KEY (`id_donhang`) REFERENCES `tbl_donhang` (`id`);
+  ADD CONSTRAINT `tbl_chitiethd_ibfk_1` FOREIGN KEY (`id_sp`) REFERENCES `tbl_sanpham` (`id_sp`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_chitiethd_ibfk_2` FOREIGN KEY (`id_donhang`) REFERENCES `tbl_donhang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_danhmuc_sp`
 --
 ALTER TABLE `tbl_danhmuc_sp`
-  ADD CONSTRAINT `tbl_danhmuc_sp_ibfk_1` FOREIGN KEY (`danhmuc_id`) REFERENCES `tbl_danhmuc` (`id`),
-  ADD CONSTRAINT `tbl_danhmuc_sp_ibfk_2` FOREIGN KEY (`sp_id`) REFERENCES `tbl_sanpham` (`id_sp`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `tbl_danhmuc_sp_ibfk_1` FOREIGN KEY (`sp_id`) REFERENCES `tbl_sanpham` (`id_sp`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_danhmuc_sp_ibfk_2` FOREIGN KEY (`danhmuc_id`) REFERENCES `tbl_danhmuc` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_donhang`
 --
 ALTER TABLE `tbl_donhang`
-  ADD CONSTRAINT `tbl_donhang_ibfk_1` FOREIGN KEY (`khanhhang_id`) REFERENCES `tbl_khanhhang` (`id`);
+  ADD CONSTRAINT `tbl_donhang_ibfk_1` FOREIGN KEY (`khanhhang_id`) REFERENCES `tbl_khanhhang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
-  ADD CONSTRAINT `tbl_sanpham_ibfk_1` FOREIGN KEY (`KTMH_id`) REFERENCES `tbl_ktmh` (`id`),
-  ADD CONSTRAINT `tbl_sanpham_ibfk_2` FOREIGN KEY (`Hang_id`) REFERENCES `tbl_hang` (`id`),
-  ADD CONSTRAINT `tbl_sanpham_ibfk_3` FOREIGN KEY (`Dophangiai_id`) REFERENCES `tbl_dophangiai` (`id`),
-  ADD CONSTRAINT `tbl_sanpham_ibfk_4` FOREIGN KEY (`LoaiTivi_id`) REFERENCES `tbl_loaitivi` (`id`);
+  ADD CONSTRAINT `tbl_sanpham_ibfk_1` FOREIGN KEY (`Hang_id`) REFERENCES `tbl_hang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_sanpham_ibfk_2` FOREIGN KEY (`Dophangiai_id`) REFERENCES `tbl_dophangiai` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_sanpham_ibfk_3` FOREIGN KEY (`LoaiTivi_id`) REFERENCES `tbl_loaitivi` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tbl_sanpham_ibfk_4` FOREIGN KEY (`KTMH_id`) REFERENCES `tbl_ktmh` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

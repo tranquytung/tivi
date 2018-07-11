@@ -100,14 +100,13 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="product_tabs">
                         <ul class="clearfix">
                             <li><a href="#tabs-1">Mô tả sản phẩm</a></li>
                         </ul>
                         <!--TABS-->
                         <div id="tabs-1" class="tab" >
-                            <p>{{ $item->noidung }}</p>
+                            <?= $item->noidung ?>
                         </div>
 
                     </div>

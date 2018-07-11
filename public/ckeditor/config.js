@@ -7,7 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
-   /*config.filebrowserBrowseUrl = 'http://localhost:81/tivi/public/ckfinder/ckfinder.html';
+    config.filebrowserBrowseUrl = 'http://localhost:81/tivi/public/ckfinder/ckfinder.html';
 
     config.filebrowserImageBrowseUrl = 'http://localhost:81/tivi/public/ckfinder/ckfinder.html?type=Images';
 
@@ -17,5 +17,5 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.filebrowserImageUploadUrl = 'http://localhost:81/bantivi/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
 
-    config.filebrowserFlashUploadUrl = 'http://localhost:81/bantivi/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';*/
+    config.filebrowserFlashUploadUrl = 'http://localhost:81/bantivi/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
 };

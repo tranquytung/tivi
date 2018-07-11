@@ -81,24 +81,10 @@ class CartController extends Controller
             $chitiet->gia=$value->price;
             $chitiet->save();
         }
-
+        Cart::destroy();
 
         return redirect('complete');
 
-        /*$data['info']=$request->all();
-        $email=$request->email;
-        $data['cart']=Cart::content();
-        $data['total']=Cart::total();
-        Mail::send('frontend.email',$data,function($message) use ($email){
-            $message->from('tranquytung96@gmail.com','Trantung');
-
-            $message->to($email,$email);
-
-            $message->cc('tranquytung96@gmail.com','Tran Tung');
-
-            $message->subject('Xac dinh mua hang cua max shop');
-        });
-        return redirect('complete');*/
     }
 
     public function getComplete(){

@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\CategoryId;
 use App\Hang;
+use Cart;
 use App\Product;
 use App\ProductImage;
 use App\Users;
-use Gloudemans\Shoppingcart\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -116,7 +116,7 @@ class FrontendController extends Controller
 
         $email=$request->txt_email;
         $pass=$request->txt_pass;
-
+        Cart::destroy();
         $check = Auth::guard('user1')->attempt(['email'=>$email,'password'=>$pass]);
 
         if($check){
@@ -162,7 +162,7 @@ class FrontendController extends Controller
     }
 
     public function getLogout(){
-        /*Cart::destroy();*/
+        Cart::destroy();
         session()->forget('user');
         return redirect()->route('home');
     }

@@ -23,6 +23,8 @@
                 <link rel="stylesheet" href="{{ url('frontend/style.css') }}">
 				<link rel="stylesheet" href="{{ url('frontend/css/responsive.css') }}">
                 <link rel="stylesheet" href="{{ url('frontend/css/prettyPhoto.css') }}">
+                <script src=" {{ url('../public/ckeditor/ckeditor.js') }} "></script>
+                <script src=" {{ url('../public/ckfinder/ckfinder.js') }} "></script>
 
 				
 				<!-- favicon -->
@@ -103,11 +105,6 @@
                                         @endforeach
                                     </ul>
                                 </nav>
-                                 <select>
-                                     @foreach($categoris as $item)
-                                        <option>{{ $item['name'] }}</option>
-                                     @endforeach
-                                </select>
                             </div>
                         </div>
                     </div>
@@ -130,9 +127,6 @@
                                 <div class="categories">
                                     <figure>
                                         <img src="{{ asset('frontend/images/banner/banner7.png') }}" alt="">
-                                        <div class="cate-overlay">
-                                            <a href="#">Single Seat</a>
-                                        </div>
                                     </figure>
                                 </div>
                             </div>
@@ -141,9 +135,7 @@
                                 <div class="categories">
                                     <figure>
                                         <img src="{{ asset('frontend/images/banner/banner5.png') }}" alt="">
-                                        <div class="cate-overlay">
-                                            <a href="#">Surfaces</a>
-                                        </div>
+
                                     </figure>
                                 </div>
                             </div>
@@ -152,9 +144,6 @@
                                 <div class="categories">
                                     <figure>
                                         <img src="{{ asset('frontend/images/banner/banner4.png') }}" alt="">
-                                        <div class="cate-overlay">
-                                            <a href="#">Storage</a>
-                                        </div>
                                     </figure>
                                 </div>
                             </div>

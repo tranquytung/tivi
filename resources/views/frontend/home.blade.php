@@ -11,29 +11,29 @@
                         <div class="slides">
                             <a href="#"><img src="{{ asset('frontend/images/banner/banner1.png') }}" alt=""></a>
                             <div class="overlay">
-                                <h1>AWESOME FURNITUR</h1>
-                                <p><span>50%</span> OFF <br/> TRENDY <span>DESIGNS</span> </p>
+                                <h1>TIVI SONY</h1>
+                                <p><span>50%</span> SALE</p>
                             </div>
                         </div>
                         <div class="slides">
                             <a href="#"><img src="{{ asset('frontend/images/banner/banner2.png') }}" alt=""></a>
                             <div class="overlay">
-                                <h1>LATEST FASHION</h1>
-                                <p><span>30%</span> OFF <br/> TRENDY <span>DESIGNS</span> </p>
+                                <h1>TIVI PANASONIC</h1>
+                                <p><span>30%</span> SALE <br/></p>
                             </div>
                         </div>
                         <div class="slides">
                             <a href="#"><img src="{{ asset('frontend/images/banner/banner3.png') }}" alt=""></a>
                             <div class="overlay">
-                                <h1>AWESOME FURNITUR</h1>
-                                <p><span>50%</span> OFF <br/> TRENDY <span>DESIGNS</span> </p>
+                                <h1>TIVI SAMSUNG</h1>
+                                <p><span>50%</span> SALE <br/></p>
                             </div>
                         </div>
                         <div class="slides">
                             <a href="#"><img src="{{ asset('frontend/images/banner/banner4.png') }}" alt=""></a>
                             <div class="overlay">
-                                <h1>LATEST FASHION</h1>
-                                <p><span>30%</span> OFF <br/> TRENDY <span>DESIGNS</span> </p>
+                                <h1>SMART TIVI</h1>
+                                <p><span>30%</span> SALE <br/> </p>
                             </div>
                         </div>
                     </div>
