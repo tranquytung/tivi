@@ -36,7 +36,7 @@
                         <td class="sorting_1">{{$item['diachi']}}</td>
                         <td class="sorting_1">{{ $item['sdt'] }}</td>
                         <td class="sorting_1">
-                            <a href="{{ URL::route('admin.hoadon.getView',$item['id']) }}"
+                            <a href="{{ URL::route('admin.hoadon.getActive',$item['id']) }}"
                                class=" {{ $item['status'] == 0 ? 'btn btn-xs btn-success' : "btn btn-xs btn-primary"}} ">
                             {{ $item['status'] == 0 ? 'Chưa Thanh Toán' : "Đã Thanh Toán"}}
                             </a>

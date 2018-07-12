@@ -22,6 +22,7 @@ Route::group(['prefix'=>''],function (){
     Route::get('dangky',['as'=>'dangky','uses'=>'FrontendController@getDangKy']);
     Route::post('dangky',['as'=>'user.dangky','uses'=>'FrontendController@postDangKy']);
     Route::get('cart',['as'=>'cart','uses'=>'FrontendController@getCart']);
+    Route::get('hang/{id}',['as'=>'hang','uses'=>'FrontendController@getHang']);
 });
 Route::group(['prefix'=>'cart'],function (){
     Route::get('add/{id}/',['as'=>'cart.add','uses'=>'CartController@getAddCart']);
@@ -115,5 +116,6 @@ Route::group(['prefix'=>'admin'],function (){
         Route::get('list',['as'=>'admin.hoadon.list','uses'=>'HoadonController@getList'])->middleware('admin.auth');
         Route::get('delete/{id}',['as'=>'admin.hoadon.getDelete','uses'=>'HoadonController@getDelete'])->middleware('admin.auth');
         Route::get('view/{id}',['as'=>'admin.hoadon.getView','uses'=>'HoadonController@getView'])->middleware('admin.auth');
+        Route::get('active/{id}',['as'=>'admin.hoadon.getActive','uses'=>'HoadonController@getActive'])->middleware('admin.auth');
     });
 });

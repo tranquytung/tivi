@@ -16,16 +16,19 @@
                 <div class="span12">
                     <div class="sorting-bar clearfix">
                         <div>
-                            <label>Sort by</label>
+                            <label>Sắp xếp</label>
                             <select>
-                                <option>Position</option>
+                                <option>Tăng</option>
+                                <option>Giảm</option>
                             </select>
                         </div>
 
                         <div class="show">
-                            <label>SHOW</label>
+                            <label>Hiển Thị</label>
                             <select>
-                                <option>5 per page</option>
+                                <option>5 sản phẩm</option>
+                                <option>10 sản phẩm</option>
+                                <option>15 sản phẩm</option>
                             </select>
                         </div>
 
@@ -53,12 +56,12 @@
                                 <div>
                                     <figure>
                                         <div class="img-product">
-                                            <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item->anh )}}" alt=""></a>
+                                            <a href="#"><img class="item-product" src="{{ asset('upload/product/'.$item->anh )}}" alt=""></a>
                                             <div class="{{ $item->anh > 0 ? 'discount' : 'an' }}">{{ '-'.$item->anh.'%'}}</div>
                                             <span class="new"><img src="{{ $item->new==1 ? asset('frontend/images/new.png') : ' ' }}" alt=""></span>
                                         </div>
                                         <div class="overlay">
-                                            <a href="{{ asset('upload/product/image/'.$item->anh )}}" class="zoom prettyPhoto"></a>
+                                            <a href="{{ asset('upload/product/'.$item->anh )}}" class="zoom prettyPhoto"></a>
                                             <a href="#" class="link"></a>
                                         </div>
                                     </figure>
@@ -109,46 +112,46 @@
                             <h4>Hiển Thị Theo</h4>
 
                             <div id="accordion">
-                                <h5><a href="#">Danh mục (5)</a></h5>
+                                <h5><a href="#">Danh mục </a></h5>
                                 <div>
                                     <ul>
                                         @foreach($categoris as $item)
-                                            <li><a href="">{{ $item['name'] }} (10) </a></li>
+                                            <li><a href="{{ URL::route('product',$item['id']) }}">{{ $item['name'] }}  </a></li>
                                         @endforeach
                                     </ul>
                                 </div>
 
-                                <h5><a href="#">Hãng (6)</a></h5>
+                                <h5><a href="#">Hãng </a></h5>
                                 <div>
                                     <ul>
                                         @foreach($hang as $item)
-                                            <li><a href="">{{ $item['tenhang'] }} (10) </a></li>
+                                            <li><a href="{{ URL::route('hang',$item['id']) }}">{{ $item['tenhang'] }} </a></li>
                                         @endforeach
                                     </ul>
                                 </div>
 
-                                <h5><a href="#">Kích Thước Màn Hình (8)</a></h5>
+                                <h5><a href="#">Kích Thước Màn Hình </a></h5>
                                 <div>
                                     <ul>
                                         @foreach($ktmh as $item)
-                                            <li><a href="">{{ $item['kichthuoc'] }} (10) </a></li>
+                                            <li><a href="">{{ $item['kichthuoc'] }} </a></li>
                                         @endforeach
                                     </ul>
                                 </div>
-                                <h5><a href="#">Loại Ti Vi (9)</a></h5>
+                                <h5><a href="#">Loại Ti Vi </a></h5>
                                 <div>
                                     <ul>
                                         @foreach($loaitivi as $item)
-                                            <li><a href="">{{ $item['loaitivi'] }} (10) </a></li>
+                                            <li><a href="">{{ $item['loaitivi'] }} </a></li>
                                         @endforeach
                                     </ul>
                                 </div>
 
-                                <h5><a href="#">Độ Phân Giải Màn Hình (5)</a></h5>
+                                <h5><a href="#">Độ Phân Giải Màn Hình </a></h5>
                                 <div>
                                     <ul>
                                         @foreach($dophangiai as $item)
-                                            <li><a href="">{{ $item['dophangiai'] }} (10) </a></li>
+                                            <li><a href="">{{ $item['dophangiai'] }} </a></li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -159,39 +162,21 @@
 
 
                         <div class="widget">
-                            <h4>Featured Products</h4>
+                            <h4>Sản Phẩm Bán Chạy</h4>
 
                             <div class="featured">
                                 <ul>
+                                    @foreach($payy as $item)
                                     <li class="clearfix">
                                         <figure>
-                                            <a href="#"><img src="http://placehold.it/50x50" alt=""></a>
+                                            <a href="{{ URL::route('product.detail',$item->id_sp ) }}"><img src="{{ asset('upload/product/'.$item->anh )}}" alt=""></a>
                                         </figure>
                                         <div>
-                                            <h5>Brown Wood Chair</h5>
-                                            <span>$244.00</span>
+                                            <h5>{{ $item->TenSP }}</h5>
+                                            <span>{{ formatprice_KM($item->Gia,$item->sale) }}</span>
                                         </div>
                                     </li>
-
-                                    <li class="clearfix">
-                                        <figure>
-                                            <a href="#"><img src="http://placehold.it/50x50" alt=""></a>
-                                        </figure>
-                                        <div>
-                                            <h5>Brown Wood Chair</h5>
-                                            <span>$244.00</span>
-                                        </div>
-                                    </li>
-
-                                    <li class="clearfix last">
-                                        <figure>
-                                            <a href="#"><img src="http://placehold.it/50x50" alt=""></a>
-                                        </figure>
-                                        <div>
-                                            <h5>Brown Wood Chair</h5>
-                                            <span>$244.00</span>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
 
@@ -203,4 +188,25 @@
         </div>
     </div>
     <!-- PRODUCT-OFFER -->
+    <!-- CLIENTS -->
+    <div class="clients-wrap">
+        <div class="container">
+            <div class="row heading-wrap">
+                <div class="span12 heading">
+                    <h2>Thương Hiệu <span></span></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span12 clients">
+                    <ul class="elastislide-list clearfix" id="carousel">
+                        @foreach($hang as $item)
+                            <li><a href="{{ URL::route('hang',$item['id']) }}"><img src="{{ asset('upload/'.$item['hinhanh']) }}" alt="" width="141px" height="80px"></a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CLIENTS -->
 @endsection

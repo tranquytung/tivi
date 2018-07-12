@@ -82,12 +82,12 @@
                     <div>
                         <figure>
                             <div class="img-product">
-                                <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item ->anh )}}" alt=""></a>
+                                <a href="#"><img class="item-product" src="{{ asset('upload/product/'.$item ->anh )}}" alt=""></a>
                                 <div class="{{ $item -> sale > 0 ? 'discount' : 'an' }}">{{ '-'.$item->sale.'%'}}</div>
                                 <span class="new"><img src="{{ $item->new==1 ? asset('frontend/images/new.png') : ' ' }}" alt=""></span>
                             </div>
                             <div class="overlay">
-                                <a href="{{ asset('upload/product/image/'.$item->anh )}}" class="zoom prettyPhoto"></a>
+                                <a href="{{ asset('upload/product/'.$item->anh )}}" class="zoom prettyPhoto"></a>
                                 <a href="{{ URL::route('product.detail',$item->id_sp ) }}" class="link"></a>
                             </div>
                         </figure>
@@ -128,12 +128,12 @@
                         <div>
                             <figure>
                                 <div class="img-product">
-                                    <a href="#"><img class="item-product" src="{{ asset('upload/product/image/'.$item->anh )}}" alt=""></a>
+                                    <a href="#"><img class="item-product" src="{{ asset('upload/product/'.$item->anh) }}" alt=""></a>
                                     <div class="{{ $item->sale > 0 ? 'discount' : 'an' }}">{{ '-'.$item->sale.'%'}}</div>
                                     <span class="new"><img src="{{ $item->new ==1 ? asset('frontend/images/new.png') : ' ' }}" alt=""></span>
                                 </div>
                                 <div class="overlay">
-                                    <a href="{{ asset('upload/product/image/'.$item->anh )}}" class="zoom prettyPhoto"></a>
+                                    <a href="{{ asset('upload/product/'.$item->anh )}}" class="zoom prettyPhoto"></a>
                                     <a href="{{ URL::route('product.detail',$item->id_sp ) }}" class="link"></a>
                                 </div>
                             </figure>
@@ -160,4 +160,26 @@
         </div>
     </div>
     <!-- PRODUCT-OFFER -->
+    <!-- CLIENTS -->
+    <div class="clients-wrap">
+        <div class="container">
+            <div class="row heading-wrap">
+                <div class="span12 heading">
+                    <h2>Thương Hiệu <span></span></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="span12 clients">
+                    <ul class="elastislide-list clearfix" id="carousel">
+                        @foreach($hang as $item)
+                            <li><a href="{{ URL::route('hang',$item['id']) }}"><img src="{{ asset('upload/'.$item['hinhanh']) }}" alt="" width="141px" height="80px"></a></li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CLIENTS -->
 @endsection
+

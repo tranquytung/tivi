@@ -25,7 +25,6 @@
                         <th>Giá</th>
                         <th>số lượng</th>
                         <th>Tổng tiền</th>
-                        <th>Thao Tác</th>
                     </tr>
                     </thead>
                     <tbody class="danhsach">
@@ -36,14 +35,6 @@
                         <td class="sorting_1">{{ formatprice($item->gia)}}</td>
                         <td class="sorting_1">{{ $item->number }}</td>
                         <td class="sorting_1">{{ formatprice($item->gia*$item->number) }}</td>
-                        <td class="">
-                            <a href="" class="btn btn-xs btn-primary">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a href="" class="btn btn-xs btn-success">
-                                <i class="fa fa-remove" aria-hidden="true"></i>
-                            </a>
-                        </td>
                     </tr>
                     <?php $stt++; endforeach; ?>
                     </tbody>

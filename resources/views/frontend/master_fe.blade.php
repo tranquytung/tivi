@@ -119,27 +119,7 @@
                 @yield('content')
                 <!-- PRODUCT-OFFER -->
 
-                <!-- CLIENTS -->
-                <div class="clients-wrap">
-                    <div class="container">
-                        <div class="row heading-wrap">
-                            <div class="span12 heading">
-                                <h2>Thương Hiệu <span></span></h2>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="span12 clients">
-                                <ul class="elastislide-list clearfix" id="carousel">
-                                    @foreach($hang as $item)
-                                        <li><a href="#"><img src="{{ asset('upload/'.$item['hinhanh']) }}" alt="" width="141px" height="80px"></a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- CLIENTS -->
 
                 <!-- CATEGORIES -->
                 <div class="categories-wrap">

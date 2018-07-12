@@ -137,7 +137,7 @@
                     <div class="form-group" id="css-nd">
                         <label for="inputEmail3" class="col-md-2 control-label">Nội Dung</label>
                         <div class="col-md-9">
-                            <textarea class="form-control"  id="nd" name="txt_content" rows="1"></textarea>
+                            <textarea class="form-control"  id="nd" name="content" rows="1"></textarea>
                             <script >
                                 config={};
                                 config.entities_latin=false;
